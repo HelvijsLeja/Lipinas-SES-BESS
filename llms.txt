@@ -1,0 +1,41 @@
+# Ļipiņas Energy — SES + BESS parks
+
+> Saules enerģijas sistēma (SES) un bateriju enerģijas uzkrāšanas sistēma (BESS)
+> Salaspils novadā, Latvijā. Investīciju iespēja Baltijas atjaunīgās enerģijas sektorā.
+> Attīstītājs: SIA "STROIPERLIT-RIGA".
+
+## Projekta parametri
+- Saules enerģijas sistēma (SES): 3 MWp uzstādītā jauda, 2,5 MW jauda tīklā
+- Bateriju enerģijas uzkrāšanas sistēma (BESS): 5 MWh ietilpība, 2,5 MW jauda tīklā
+- Akumulatora efektivitāte: 90% round-trip
+- Zemes gabali: "Ļipiņas" (kadastra Nr. 8031 014 0020) un "Ļipiņas 1" (kadastra Nr. 8031 014 0315)
+- Atrašanās: Salaspils pagasts, Salaspils novads, Latvija (blakus Knauf rūpnīcai)
+- Koordinātas: 56.90455, 24.36405
+
+## Ieņēmumu modelis (trīs plūsmas)
+1. Saules enerģijas pārdošana tīklā vai tiešajam patērētājam; papildus SEG (siltumnīcefekta gāzu) emisiju samazinājums un CO2 kvótu ietaupījums.
+2. Akumulatoru arbitrāža — līdz 2 uzlādes cikliem dienā, izmantojot tirgus cenu svārstības.
+3. Tīkla balansēšanas un jaudas rezerves pakalpojumi.
+
+## Finanšu rādītāji (10 gadu modelis, 9% diskonta likme)
+- IRR: 22–32%
+- ROI (kumulatīvs): 141–214%
+- Vienkāršā atmaksāšanās: 3–4 gadi
+- Kopējais projekta CAPEX: ~2,3 miljoni EUR
+- Diapazoni atspoguļo divas CAPEX bāzes (tikai iekārtas / pilns projekts).
+- NPV un pilna 10 gadu naudas plūsma pieejama pēc pieprasījuma.
+
+## Statuss
+- Tehniskais projekts saskaņots, saņemta būvatļauja.
+- Izbūvēts pieslēgums AS "Sadales tīkls".
+- Šobrīd: izmaiņas SES tehniskajā projektā, papildinot ar BESS daļu.
+- Nākamie posmi: investīciju piesaiste, būvniecība.
+
+## Kontakti
+- SIA "STROIPERLIT-RIGA", reģ. Nr. 40003753491
+- Adrese: Mazā Kalna iela 13-2, Rīga, LV-1003, Latvija
+- E-pasts: info@lipinasenergy.com
+- Tīmeklis: https://lipinasenergy.com/
+
+## Piezīme
+Skaitļi ir indikatīvi un nav publisks piedāvājums iegādāties vērtspapīrus.
