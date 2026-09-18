@@ -13,7 +13,7 @@
 - Koordinātas: 56.90455, 24.36405
 
 ## Ieņēmumu modelis (trīs plūsmas)
-1. Saules enerģijas pārdošana tīklā vai tiešajam patērētājam; papildus SEG (siltumnīcefekta gāzu) emisiju samazinājums un CO2 kvótu ietaupījums.
+1. Saules enerģijas pārdošana tīklā vai tiešajam patērētājam; papildus SEG (siltumnīcefekta gāzu) emisiju samazinājums un CO2 kvotu ietaupījums.
 2. Akumulatoru arbitrāža — līdz 2 uzlādes cikliem dienā, izmantojot tirgus cenu svārstības.
 3. Tīkla balansēšanas un jaudas rezerves pakalpojumi.
 
