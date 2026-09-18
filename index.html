@@ -11,10 +11,10 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css">
 <style>
   :root{
-    --bg:#070b12;--bg-2:#0c1220;
-    --panel:rgba(255,255,255,.035);--panel-brd:rgba(255,255,255,.08);
-    --ink:#eef3fb;--muted:#93a1b8;--faint:#63718a;
-    --acc:#3ee0c8;--acc-2:#38bdf8;--acc-glow:rgba(62,224,200,.14);--warn:#f5c451;
+    --bg:#f5f8fc;--bg-2:#e9eef6;
+    --panel:rgba(255,255,255,.72);--panel-brd:rgba(16,27,45,.12);
+    --ink:#0d1526;--muted:#47566c;--faint:#748196;
+    --acc:#0d9488;--acc-2:#2563eb;--acc-glow:rgba(13,148,136,.14);--warn:#b8860b;
     --radius:18px;--maxw:1120px;
   }
   *{box-sizing:border-box;margin:0;padding:0}
@@ -26,12 +26,17 @@
   .accent{color:var(--acc)}.accent-2{color:var(--acc-2)}
 
   .bg-fx{position:fixed;inset:0;z-index:-1;overflow:hidden}
-  .bg-fx::before,.bg-fx::after{content:"";position:absolute;border-radius:50%;filter:blur(120px);opacity:.5}
+  .bg-fx::before,.bg-fx::after{content:"";position:absolute;border-radius:50%;filter:blur(120px);opacity:.28}
   .bg-fx::before{width:620px;height:620px;background:radial-gradient(circle,var(--acc-glow),transparent 70%);top:-180px;right:-120px}
   .bg-fx::after{width:520px;height:520px;background:radial-gradient(circle,rgba(56,189,248,.12),transparent 70%);bottom:-160px;left:-140px}
-  .grid-lines{position:fixed;inset:0;z-index:-1;background-image:linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000,transparent)}
+  .grid-lines{position:fixed;inset:0;z-index:-1;background-image:linear-gradient(rgba(15,23,42,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(15,23,42,.04) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000,transparent)}
+  /* Animēts enerģijas plūsmas fons (visai lapai) */
+  .flow-bg{position:fixed;inset:0;z-index:-1;display:grid;place-items:center;pointer-events:none;color:#0d1526;opacity:.1;
+    -webkit-mask-image:radial-gradient(120% 100% at 50% 40%,#000 52%,transparent);mask-image:radial-gradient(120% 100% at 50% 40%,#000 52%,transparent)}
+  .flow-bg svg{width:min(1500px,132vw);height:auto}
+  @media(prefers-reduced-motion:reduce){.flow-bg *{animation:none!important}}
 
-  nav{position:sticky;top:0;z-index:1000;backdrop-filter:blur(14px);background:rgba(7,11,18,.72);border-bottom:1px solid var(--panel-brd)}
+  nav{position:sticky;top:0;z-index:1000;backdrop-filter:blur(14px);background:rgba(245,248,252,.82);border-bottom:1px solid var(--panel-brd)}
   nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
   .brand{display:flex;align-items:center;gap:10px;font-family:'Space Grotesk';font-weight:600;font-size:15px;white-space:nowrap}
   .brand .dot{width:10px;height:10px;border-radius:50%;background:var(--acc);box-shadow:0 0 12px var(--acc)}
@@ -40,20 +45,24 @@
   .nav-right{display:flex;align-items:center;gap:16px}
   .lang{display:flex;gap:2px;border:1px solid var(--panel-brd);border-radius:999px;padding:3px;background:var(--panel)}
   .lang button{background:none;border:0;color:var(--faint);font:600 12px 'Inter';padding:5px 10px;border-radius:999px;cursor:pointer;transition:.15s}
-  .lang button.on{background:var(--acc);color:#052012}
-  .nav-cta{padding:9px 18px;border-radius:999px;background:var(--acc);color:#052012;font-weight:600;font-size:14px;transition:.2s;white-space:nowrap}
+  .lang button.on{background:var(--acc);color:#fff}
+  .nav-cta{padding:9px 18px;border-radius:999px;background:var(--acc);color:#fff;font-weight:600;font-size:14px;transition:.2s;white-space:nowrap}
   .nav-cta:hover{transform:translateY(-1px);box-shadow:0 8px 22px var(--acc-glow)}
   @media(max-width:900px){.nav-links{display:none}}
 
   header{padding:88px 0 64px;position:relative;overflow:hidden}
   header .wrap{position:relative;z-index:2}
-  .hero-canvas{position:absolute;inset:0;z-index:0;width:100%;height:100%;
-    mask-image:linear-gradient(90deg,transparent,#000 30%,#000 100%);
-    -webkit-mask-image:linear-gradient(90deg,transparent,#000 30%,#000 100%);opacity:.9;pointer-events:none}
-  .hero-art{position:absolute;right:-20px;top:96px;width:min(560px,46%);height:auto;z-index:1;opacity:.6;pointer-events:none;
-    -webkit-mask-image:radial-gradient(110% 110% at 75% 45%,#000 58%,transparent);mask-image:radial-gradient(110% 110% at 75% 45%,#000 58%,transparent)}
-  @media(max-width:1000px){.hero-art{opacity:.32}}
-  @media(max-width:760px){.hero-art{top:auto;bottom:-8px;width:92%;right:-16%;opacity:.14}}
+  .hero-art{display:none;position:absolute;right:-30px;top:64px;width:min(760px,58%);height:auto;z-index:1;opacity:.55;pointer-events:none;
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000 42%,#000 100%);mask-image:linear-gradient(90deg,transparent,#000 42%,#000 100%)}
+  @media(max-width:1000px){.hero-art{opacity:.3}}
+  @media(max-width:760px){.hero-art{top:auto;bottom:-6px;width:104%;right:-20%;opacity:.13}}
+  /* Enerģijas plūsmas josla (gaiša) */
+  .story{position:relative;z-index:2;width:100%;background:linear-gradient(180deg,#f5f8fc,#e7edf6);border-top:1px solid #d6ddeb;border-bottom:1px solid #d6ddeb;margin-top:52px;padding:22px 0 18px;overflow:hidden}
+  .story .wrap{position:relative;z-index:2}
+  .flow-title{font-family:'Space Grotesk',sans-serif;font-weight:600;color:#0f1b3a;font-size:13px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px;text-align:center;opacity:.7}
+  .flow-svg{width:100%;height:auto;display:block;max-width:1040px;margin:0 auto}
+  .flow-svg text{font-family:'Inter',sans-serif;font-weight:600;font-size:15px;fill:#0f1b3a}
+  @media(max-width:760px){.flow-svg text{font-size:19px}.flow-title{font-size:12px}}
   .pill{display:inline-flex;align-items:center;gap:8px;padding:7px 15px;border:1px solid var(--panel-brd);border-radius:999px;background:var(--panel);font-size:13px;color:var(--muted);margin-bottom:26px}
   .pill .live{width:7px;height:7px;border-radius:50%;background:var(--acc);box-shadow:0 0 10px var(--acc);animation:pulse 2s infinite}
   @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
@@ -62,7 +71,7 @@
   .lead{font-size:clamp(17px,2.2vw,20px);color:var(--muted);max-width:640px;margin-bottom:34px}
   .cta-row{display:flex;gap:14px;flex-wrap:wrap}
   .btn{padding:14px 26px;border-radius:12px;font-weight:600;font-size:15px;transition:.2s;cursor:pointer;border:1px solid transparent}
-  .btn-primary{background:var(--acc);color:#052012}
+  .btn-primary{background:var(--acc);color:#fff}
   .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 30px var(--acc-glow)}
   .btn-ghost{background:var(--panel);border-color:var(--panel-brd);color:var(--ink)}
   .btn-ghost:hover{border-color:var(--acc)}
@@ -81,7 +90,7 @@
 
   .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
   .card{padding:30px 26px;border:1px solid var(--panel-brd);border-radius:var(--radius);background:var(--panel);transition:.25s}
-  .card:hover{transform:translateY(-4px);border-color:rgba(62,224,138,.35);background:rgba(255,255,255,.05)}
+  .card:hover{transform:translateY(-4px);border-color:rgba(13,148,136,.4);background:rgba(255,255,255,.95)}
   .card .ico{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;margin-bottom:18px;background:var(--acc-glow);font-size:22px}
   .card h3{font-size:19px;margin-bottom:10px;font-weight:600}
   .card p{color:var(--muted);font-size:15px}
@@ -109,14 +118,14 @@
   .finnote{font-size:13px;color:var(--faint);margin-bottom:20px}
 
   #map{height:420px;width:100%;border-radius:var(--radius);border:1px solid var(--panel-brd);z-index:1}
-  .leaflet-container{background:#0c1220;font-family:'Inter',sans-serif}
-  .leaflet-control-layers{background:rgba(12,18,32,.92)!important;color:var(--ink);border:1px solid var(--panel-brd)!important;border-radius:10px!important;backdrop-filter:blur(8px);padding:4px 4px}
+  .leaflet-container{background:#e9eef6;font-family:'Inter',sans-serif}
+  .leaflet-control-layers{background:rgba(255,255,255,.95)!important;color:var(--ink);border:1px solid var(--panel-brd)!important;border-radius:10px!important;backdrop-filter:blur(8px);padding:4px 4px}
   .leaflet-control-layers label{font-size:13px;margin:3px 6px;display:flex;align-items:center;gap:7px;cursor:pointer}
   .leaflet-control-layers-selector{accent-color:var(--acc)}
-  .leaflet-popup-content-wrapper,.leaflet-popup-tip{background:#0c1220;color:var(--ink);border:1px solid var(--panel-brd)}
+  .leaflet-popup-content-wrapper,.leaflet-popup-tip{background:#fff;color:var(--ink);border:1px solid var(--panel-brd)}
   .leaflet-popup-content{font-size:13px;line-height:1.5}
-  .leaflet-bar a{background:#0c1220;color:var(--ink);border-bottom-color:var(--panel-brd)}
-  .leaflet-bar a:hover{background:#141d30}
+  .leaflet-bar a{background:#fff;color:var(--ink);border-bottom-color:var(--panel-brd)}
+  .leaflet-bar a:hover{background:#eef2f8}
   .map-wrap{display:grid;grid-template-columns:1fr 320px;gap:24px;align-items:stretch}
   @media(max-width:860px){.map-wrap{grid-template-columns:1fr}}
   .map-facts{border:1px solid var(--panel-brd);border-radius:var(--radius);background:var(--panel);padding:26px;display:flex;flex-direction:column;justify-content:center;gap:18px}
@@ -152,6 +161,42 @@
 <body>
 <div class="bg-fx"></div>
 <div class="grid-lines"></div>
+<div class="flow-bg" aria-hidden="true">
+  <svg viewBox="0 0 1040 560" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <g id="fchain" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <!-- saule -->
+        <g><circle cx="130" cy="78" r="19"><animate attributeName="r" values="19;21;19" dur="3.4s" repeatCount="indefinite"/></circle>
+          <path d="M130 42V52 M130 104v10 M92 78h10 M158 78h10 M103 51l7 7 M150 98l7 7 M157 51l-7 7 M110 98l-7 7"/></g>
+        <!-- paneļi -->
+        <g transform="rotate(-7 404 90)"><path d="M360 72h88v36h-88z"/><path d="M389 72v36 M418 72v36 M360 90h88"/><path d="M404 108v16 M392 124h24"/></g>
+        <!-- BESS -->
+        <g><path d="M632 54h56v66h-56z"/><path d="M632 69h56 M650 69v51 M668 69v51"/><path d="M640 90v8 M658 90v8 M676 90v8"/>
+          <path d="M660 77l-8 15h8l-5 13 14-19h-8l6-9z" fill="currentColor" stroke="none"/><path d="M640 120v6 M680 120v6"/></g>
+        <!-- transformators -->
+        <g><path d="M884 68h52v50h-52z"/><path d="M894 68v50 M905 68v50 M916 68v50 M927 68v50"/><path d="M894 68v-12 M910 68v-12 M926 68v-12"/>
+          <circle cx="894" cy="53" r="3.4"/><circle cx="910" cy="53" r="3.4"/><circle cx="926" cy="53" r="3.4"/>
+          <path d="M890 118v8 M930 118v8"/><path d="M986 58v66 M972 70h28 M976 82h20"/><path d="M926 53q34-4 60 10"/></g>
+        <!-- vadi -->
+        <g><path d="M156 88H356" stroke-dasharray="2 8" opacity=".55"/><path d="M452 90H626"/><path d="M692 90H878"/>
+          <path d="M350 88l-8-4 M350 88l-8 4 M622 90l-8-4 M622 90l-8 4 M874 90l-8-4 M874 90l-8 4"/></g>
+        <!-- strāvas punkti -->
+        <g fill="currentColor" stroke="none">
+          <circle r="2.6" opacity=".7"><animateMotion dur="2.8s" repeatCount="indefinite" path="M156 88H352"/></circle>
+          <circle r="2.6" opacity=".7"><animateMotion dur="2.8s" begin="1.4s" repeatCount="indefinite" path="M156 88H352"/></circle>
+          <circle r="4"><animateMotion dur="2.5s" repeatCount="indefinite" path="M452 90H626"/></circle>
+          <circle r="4"><animateMotion dur="2.5s" begin="0.83s" repeatCount="indefinite" path="M452 90H626"/></circle>
+          <circle r="4"><animateMotion dur="2.5s" begin="1.66s" repeatCount="indefinite" path="M452 90H626"/></circle>
+          <circle r="4"><animateMotion dur="2.5s" repeatCount="indefinite" path="M692 90H878"/></circle>
+          <circle r="4"><animateMotion dur="2.5s" begin="0.83s" repeatCount="indefinite" path="M692 90H878"/></circle>
+          <circle r="4"><animateMotion dur="2.5s" begin="1.66s" repeatCount="indefinite" path="M692 90H878"/></circle>
+        </g>
+      </g>
+    </defs>
+    <use href="#fchain" transform="translate(0 40)"/>
+    <use href="#fchain" transform="translate(-90 300) scale(1.04)" opacity=".7"/>
+  </svg>
+</div>
 
 <nav>
   <div class="wrap">
@@ -175,53 +220,88 @@
 </nav>
 
 <header>
-  <canvas id="hero-canvas" class="hero-canvas"></canvas>
-  <svg class="hero-art" viewBox="0 0 620 420" fill="none" aria-hidden="true">
+  <svg class="hero-art" viewBox="0 0 860 520" fill="none" aria-hidden="true">
     <defs>
-      <linearGradient id="ga" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0" stop-color="#3ee0c8"/><stop offset="1" stop-color="#38bdf8"/>
-      </linearGradient>
+      <filter id="rough" x="-5%" y="-5%" width="110%" height="110%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.014 0.02" numOctaves="2" seed="7" result="n"/>
+        <feDisplacementMap in="SourceGraphic" in2="n" scale="3.2" xChannelSelector="R" yChannelSelector="G"/>
+      </filter>
+      <pattern id="hatch" width="7" height="7" patternTransform="rotate(38)" patternUnits="userSpaceOnUse">
+        <line x1="0" y1="0" x2="0" y2="7" stroke="#aebbcc" stroke-width="0.7" opacity=".45"/>
+      </pattern>
+      <pattern id="hatch2" width="5" height="5" patternTransform="rotate(-32)" patternUnits="userSpaceOnUse">
+        <line x1="0" y1="0" x2="0" y2="5" stroke="#8fd8d0" stroke-width="0.6" opacity=".4"/>
+      </pattern>
+      <!-- BESS skapis (lokālās koordinātas, dziļums augšup-pa labi) -->
+      <g id="cabinet">
+        <path d="M0 0 L16 -11 L80 -11 L64 0 Z" fill="url(#hatch)"/>
+        <path d="M64 0 L80 -11 L80 89 L64 100 Z" fill="url(#hatch)"/>
+        <path d="M0 0 H64 V100 H0 Z" fill="none"/>
+        <path d="M16 0 V100 M32 0 V100 M48 0 V100"/>
+        <path d="M12 46 v10 M28 46 v10 M44 46 v10 M60 46 v10"/>
+        <path d="M68 8 h9 M68 20 h9 M68 32 h9 M68 44 h9 M68 56 h9 M68 68 h9"/>
+        <path d="M6 100 v7 M58 100 v7 M22 100 v6 M42 100 v6"/>
+      </g>
+      <!-- saules panelis (slīps, ar režģi) -->
+      <g id="panel">
+        <path d="M0 0 L104 -30 L150 -12 L46 18 Z"/>
+        <path d="M26 -7.5 L72 10.5 M52 -15 L98 3 M78 -22.5 L124 -4.5"/>
+        <path d="M35 4.5 L139 -25.5 M23 9 L127 -21"/>
+        <path d="M46 18 v22 M104 -0 v22 M150 -12 v22"/>
+      </g>
+      <g id="tuft"><path d="M0 0 L-3 -11 M0 0 L0 -13 M0 0 L3 -11"/></g>
     </defs>
-    <g stroke="url(#ga)" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round">
-      <!-- saule -->
-      <circle cx="118" cy="86" r="30" opacity=".9"/>
+
+    <g filter="url(#rough)" stroke="#d7e0ec" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" fill="none">
+      <!-- debesis: saule + mākoņi -->
       <g opacity=".8">
-        <path d="M118 34V16M118 156v18M66 86H48M188 86h18M79 47 66 34M170 125l13 13M170 47l13-13M79 125l-13 13"/>
+        <circle cx="150" cy="92" r="30"/>
+        <path d="M150 44 V28 M150 156 v14 M102 92 H86 M214 92 h14 M114 56 L102 44 M198 128 l12 12 M198 56 l12-12 M114 128 l-12 12"/>
       </g>
-      <!-- zeme -->
-      <path d="M20 366h580" opacity=".5"/>
-      <!-- saules paneļu rindas -->
+      <g opacity=".55">
+        <path d="M470 96 q10-18 30-12 q10-20 34-10 q22-8 24 12 q16 4 6 16 H486 q-20-2-16-14 Z"/>
+        <path d="M646 66 q8-14 24-9 q8-15 27-7 q17-6 19 9 q12 3 4 13 H658 q-15-1-12-9 Z"/>
+      </g>
+      <!-- zibensnovedēja masti -->
+      <g opacity=".6">
+        <path d="M300 150 q3 90 6 175 M312 150 q-1 90 -2 175 M300 150 h12 l-3-14 h-6 Z"/>
+        <path d="M356 176 v150 M366 176 v150 M356 176 h10 l-3-11 h-4 Z"/>
+      </g>
+      <!-- saules paneļu bloks (fonā pa labi) -->
+      <g opacity=".8">
+        <use href="#panel" transform="translate(548 250)"/>
+        <use href="#panel" transform="translate(628 232) scale(1.06)"/>
+        <use href="#panel" transform="translate(720 214) scale(1.12)"/>
+      </g>
+      <!-- betona pamatne -->
+      <g opacity=".7">
+        <path d="M250 356 L560 372 L582 358 L272 344 Z" fill="url(#hatch)"/>
+        <path d="M250 356 L560 372 L560 386 L250 370 Z"/>
+      </g>
+      <!-- BESS skapju rinda (no aizmugures uz priekšu) -->
       <g opacity=".95">
-        <path d="M70 300l70-40 90 0-70 40z"/>
-        <path d="M85 300l58-33M120 300l58-33M155 300l58-33"/>
-        <path d="M155 300v34M145 334h20"/>
-        <path d="M200 300l70-40 90 0-70 40z"/>
-        <path d="M215 300l58-33M250 300l58-33M285 300l58-33"/>
-        <path d="M285 300v34M275 334h20"/>
+        <use href="#cabinet" transform="translate(300 250) scale(0.60)"/>
+        <use href="#cabinet" transform="translate(346 250) scale(0.74)"/>
+        <use href="#cabinet" transform="translate(404 250) scale(0.88)"/>
+        <use href="#cabinet" transform="translate(474 250) scale(1.04)"/>
       </g>
-      <!-- BESS konteineri -->
-      <g opacity=".95">
-        <rect x="400" y="250" width="170" height="90" rx="4"/>
-        <path d="M400 272h170M485 250v90"/>
-        <path d="M430 250v-16h40v16M510 250v-16h40v16"/>
-        <!-- baterijas simbols -->
-        <rect x="430" y="292" width="26" height="34" rx="2"/>
-        <path d="M437 292v-6h12v6"/>
-        <path d="M436 312h14"/>
-        <rect x="515" y="292" width="26" height="34" rx="2"/>
-        <path d="M522 292v-6h12v6"/>
-        <path d="M521 312h14M528 305v14"/>
+      <!-- grants + zeme -->
+      <g opacity=".5">
+        <path d="M120 372 H760" stroke-dasharray="1 9"/>
+        <path d="M150 388 H700" stroke-dasharray="1 12" opacity=".6"/>
       </g>
-      <!-- savienojumi -->
-      <g opacity=".55" stroke-dasharray="4 6">
-        <path d="M320 320h60"/>
-        <path d="M225 320h-1c-30 0-30 0-30-20"/>
+      <g opacity=".55">
+        <use href="#tuft" transform="translate(150 412)"/>
+        <use href="#tuft" transform="translate(178 418)"/>
+        <use href="#tuft" transform="translate(210 414)"/>
+        <use href="#tuft" transform="translate(690 402)"/>
+        <use href="#tuft" transform="translate(720 410)"/>
+        <use href="#tuft" transform="translate(748 404)"/>
       </g>
     </g>
   </svg>
   <div class="wrap">
-    <span class="pill"><span class="live"></span> <span data-i18n="hero_pill">Pieslēgums nodots ekspluatācijā · BESS papildinājums izstrādē</span></span>
-    <h1><span data-i18n="hero_h1">Saules parks + akumulatoru uzkrāšana</span><span class="sub">Ļipiņas · 3 MW SES + 5 MWh BESS</span></h1>
+    <h1><span data-i18n="hero_h1">Saules enerģijas sistēma + bateriju enerģijas uzkrāšanas sistēma</span><span class="sub">Ļipiņas · 3 MW SES + 5 MWh BESS</span></h1>
     <p class="lead" data-i18n="hero_lead">Investīciju iespēja Baltijas atjaunīgās enerģijas sektorā: 3 MW saules elektrostacija apvienojumā ar 5 MWh akumulatoru sistēmu 4,2 ha zemes gabalā blakus Knauf rūpnīcai.</p>
     <div class="cta-row">
       <a href="#finanses" class="btn btn-primary" data-i18n="hero_cta1">Skatīt finanšu rādītājus</a>
@@ -268,7 +348,7 @@
     <h2 data-i18n="rev_h2">Trīs papildinošas ieņēmumu plūsmas</h2>
     <p class="sec-lead" data-i18n="rev_lead">SES + BESS kombinācija ļauj gūt ieņēmumus ne tikai no saražotās enerģijas, bet arī no enerģijas tirdzniecības un tīkla balansēšanas pakalpojumiem.</p>
     <div class="cards">
-      <div class="card"><div class="ico">☀️</div><h3 data-i18n="rev_c1_h">Saules enerģijas pārdošana</h3><p data-i18n="rev_c1_p">Saules paneļu saražotās elektroenerģijas pārdošana tīklā vai tiešajam patērētājam — stabils bāzes ieņēmumu avots.</p></div>
+      <div class="card"><div class="ico">☀️</div><h3 data-i18n="rev_c1_h">Saules enerģijas pārdošana</h3><p data-i18n="rev_c1_p">Saules paneļu saražotās elektroenerģijas pārdošana tīklā vai tiešajam patērētājam — stabils bāzes ieņēmumu avots. Papildus samazina SEG (siltumnīcefekta gāzu) emisijas un ietaupa CO₂ kvótu izmaksas.</p></div>
       <div class="card"><div class="ico">🔋</div><h3 data-i18n="rev_c2_h">Akumulatoru arbitrāža</h3><p data-i18n="rev_c2_p">Enerģijas uzkrāšana lētās cenas stundās un pārdošana dārgās — līdz 2 uzlādes cikliem dienā, izmantojot cenu svārstības tirgū.</p></div>
       <div class="card"><div class="ico">⚡</div><h3 data-i18n="rev_c3_h">Tīkla balansēšana</h3><p data-i18n="rev_c3_p">Dalība balansēšanas un jaudas rezerves pakalpojumos, nodrošinot energosistēmas stabilitāti un papildu ieņēmumus.</p></div>
     </div>
@@ -304,7 +384,6 @@
         <div class="map-fact"><div class="k" data-i18n="loc_f1_k">Zemes gabali</div><div class="v" data-i18n="loc_f1_v">"Ļipiņas" · "Ļipiņas 1"</div></div>
         <div class="map-fact"><div class="k" data-i18n="loc_f2_k">Kadastra Nr.</div><div class="v" data-i18n="loc_f2_v">8031 014 0020 · 8031 014 0315</div></div>
         <div class="map-fact"><div class="k" data-i18n="loc_f3_k">Pašvaldība</div><div class="v" data-i18n="loc_f3_v">Salaspils novads</div></div>
-        <div class="map-fact"><div class="k" data-i18n="loc_f4_k">Pieslēgums</div><div class="v" data-i18n="loc_f4_v">Gar dzelzceļu · Sadales tīkls</div></div>
       </div>
     </div>
   </div>
@@ -358,7 +437,7 @@
    Centrs pēc "Ļipiņas, Saurieši" adreses (avots: OpenStreetMap/Nominatim).
    Precizē pēc vajadzības.
    ============================================================ */
-const SITE_COORDS = [56.90378, 24.36294];
+const SITE_COORDS = [56.90455, 24.36405];
 const SITE_ZOOM   = 14;
 
 /* ---------------- Tulkojumi LV / EN / RU ---------------- */
@@ -366,9 +445,10 @@ const I18N = {
   lv:{
     nav_project:"Projekts",nav_revenue:"Ieņēmumi",nav_location:"Atrašanās",nav_finance:"Finanses",nav_contact:"Kontakti",nav_cta:"Sazināties",
     hero_pill:"Pieslēgums nodots ekspluatācijā · BESS papildinājums izstrādē",
-    hero_h1:"Saules parks + akumulatoru uzkrāšana",
+    hero_h1:"Saules enerģijas sistēma + bateriju enerģijas uzkrāšanas sistēma",
     hero_lead:"Investīciju iespēja Baltijas atjaunīgās enerģijas sektorā: 3 MW saules elektrostacija apvienojumā ar 5 MWh akumulatoru sistēmu 4,2 ha zemes gabalā blakus Knauf rūpnīcai.",
     hero_cta1:"Skatīt finanšu rādītājus",hero_cta2:"Uzzināt vairāk",
+    flow_title:"Kā darbojas parks",flow_sun:"Saule",flow_pv:"Saules paneļi",flow_bess:"BESS akumulatori",flow_grid:"Sadales tīkls",
     stat_pv:"Saules paneļu jauda",stat_bess:"BESS ietilpība",stat_grid:"Jauda tīklā",stat_land:"Zemes platība",
     proj_eyebrow:"Par projektu",proj_h2:"Zaļā enerģija industriālā mikrorajonā",
     proj_lead:'SIA "STROIPERLIT-RIGA" attīsta 3 MW saules paneļu parku 4,2 ha zemes gabalā blakus Knauf rūpnīcai Salaspils pagastā. Projekts apvieno saules ģenerāciju ar akumulatoru uzkrāšanu, nodrošinot stabilu un prognozējamu enerģijas avotu.',
@@ -380,7 +460,7 @@ const I18N = {
     spec_eff:"Akumulatora efektivitāte",spec_eff_v:"90% round-trip",spec_avail:"Pieejamā ietilpība",spec_area:"Zemes platība",spec_loc:"Atrašanās vieta",spec_loc_v:"Salaspils pag.",
     rev_eyebrow:"Ieņēmumu modelis",rev_h2:"Trīs papildinošas ieņēmumu plūsmas",
     rev_lead:"SES + BESS kombinācija ļauj gūt ieņēmumus ne tikai no saražotās enerģijas, bet arī no enerģijas tirdzniecības un tīkla balansēšanas pakalpojumiem.",
-    rev_c1_h:"Saules enerģijas pārdošana",rev_c1_p:"Saules paneļu saražotās elektroenerģijas pārdošana tīklā vai tiešajam patērētājam — stabils bāzes ieņēmumu avots.",
+    rev_c1_h:"Saules enerģijas pārdošana",rev_c1_p:"Saules paneļu saražotās elektroenerģijas pārdošana tīklā vai tiešajam patērētājam — stabils bāzes ieņēmumu avots. Papildus samazina SEG (siltumnīcefekta gāzu) emisijas un ietaupa CO₂ kvótu izmaksas.",
     rev_c2_h:"Akumulatoru arbitrāža",rev_c2_p:"Enerģijas uzkrāšana lētās cenas stundās un pārdošana dārgās — līdz 2 uzlādes cikliem dienā, izmantojot cenu svārstības tirgū.",
     rev_c3_h:"Tīkla balansēšana",rev_c3_p:"Dalība balansēšanas un jaudas rezerves pakalpojumos, nodrošinot energosistēmas stabilitāti un papildu ieņēmumus.",
     fin_eyebrow:"Finanšu rādītāji",fin_h2:"Spēcīga un prognozējama atdeve",
@@ -403,9 +483,10 @@ const I18N = {
   en:{
     nav_project:"Project",nav_revenue:"Revenue",nav_location:"Location",nav_finance:"Financials",nav_contact:"Contact",nav_cta:"Get in touch",
     hero_pill:"Grid connection commissioned · BESS extension in progress",
-    hero_h1:"Solar park + battery storage",
+    hero_h1:"Solar energy system + battery energy storage system",
     hero_lead:"An investment opportunity in the Baltic renewable energy sector: a 3 MW solar power plant combined with a 5 MWh battery storage system on a 4.2 ha plot next to the Knauf factory.",
     hero_cta1:"View financials",hero_cta2:"Learn more",
+    flow_title:"How the park works",flow_sun:"Sun",flow_pv:"Solar panels",flow_bess:"BESS batteries",flow_grid:"Distribution grid",
     stat_pv:"Solar PV capacity",stat_bess:"BESS capacity",stat_grid:"Grid export power",stat_land:"Land area",
     proj_eyebrow:"About the project",proj_h2:"Green energy in an industrial hub",
     proj_lead:'"STROIPERLIT-RIGA" Ltd is developing a 3 MW solar park on a 4.2 ha plot next to the Knauf factory in Salaspils parish. The project combines solar generation with battery storage, delivering a stable and predictable energy source.',
@@ -417,7 +498,7 @@ const I18N = {
     spec_eff:"Battery efficiency",spec_eff_v:"90% round-trip",spec_avail:"Available capacity",spec_area:"Land area",spec_loc:"Location",spec_loc_v:"Salaspils parish",
     rev_eyebrow:"Revenue model",rev_h2:"Three complementary revenue streams",
     rev_lead:"The solar + BESS combination generates income not only from produced energy, but also from energy trading and grid-balancing services.",
-    rev_c1_h:"Solar energy sales",rev_c1_p:"Sale of electricity produced by the solar panels to the grid or a direct consumer — a stable base revenue source.",
+    rev_c1_h:"Solar energy sales",rev_c1_p:"Sale of electricity produced by the solar panels to the grid or a direct consumer — a stable base revenue source. It also cuts GHG (greenhouse gas) emissions and saves on CO₂ allowance costs.",
     rev_c2_h:"Battery arbitrage",rev_c2_p:"Storing energy during low-price hours and selling it during high-price hours — up to 2 charge cycles per day, capturing market price spreads.",
     rev_c3_h:"Grid balancing",rev_c3_p:"Participation in balancing and capacity-reserve services, supporting grid stability and providing additional income.",
     fin_eyebrow:"Financials",fin_h2:"Strong and predictable returns",
@@ -440,9 +521,10 @@ const I18N = {
   ru:{
     nav_project:"Проект",nav_revenue:"Доходы",nav_location:"Расположение",nav_finance:"Финансы",nav_contact:"Контакты",nav_cta:"Связаться",
     hero_pill:"Подключение к сети введено в эксплуатацию · Расширение BESS в процессе",
-    hero_h1:"Солнечный парк + накопление энергии",
+    hero_h1:"Система солнечной энергии + батарейная система накопления энергии",
     hero_lead:"Инвестиционная возможность в секторе возобновляемой энергетики Балтии: солнечная электростанция 3 МВт в сочетании с системой накопления 5 МВт·ч на участке 4,2 га рядом с заводом Knauf.",
     hero_cta1:"Финансовые показатели",hero_cta2:"Подробнее",
+    flow_title:"Как работает парк",flow_sun:"Солнце",flow_pv:"Солнечные панели",flow_bess:"Аккумуляторы BESS",flow_grid:"Распределительная сеть",
     stat_pv:"Мощность СЭС",stat_bess:"Ёмкость BESS",stat_grid:"Мощность в сеть",stat_land:"Площадь участка",
     proj_eyebrow:"О проекте",proj_h2:"Зелёная энергия в промышленном узле",
     proj_lead:'ООО «STROIPERLIT-RIGA» развивает солнечный парк мощностью 3 МВт на участке 4,2 га рядом с заводом Knauf в Саласпилсской волости. Проект объединяет солнечную генерацию с накоплением энергии, обеспечивая стабильный и предсказуемый источник энергии.',
@@ -454,7 +536,7 @@ const I18N = {
     spec_eff:"КПД накопителя",spec_eff_v:"90% round-trip",spec_avail:"Доступная ёмкость",spec_area:"Площадь участка",spec_loc:"Расположение",spec_loc_v:"Саласпилсская вол.",
     rev_eyebrow:"Модель доходов",rev_h2:"Три взаимодополняющих источника дохода",
     rev_lead:"Комбинация СЭС + BESS позволяет получать доход не только от выработанной энергии, но и от торговли энергией и услуг балансировки сети.",
-    rev_c1_h:"Продажа солнечной энергии",rev_c1_p:"Продажа электроэнергии, выработанной солнечными панелями, в сеть или прямому потребителю — стабильный базовый источник дохода.",
+    rev_c1_h:"Продажа солнечной энергии",rev_c1_p:"Продажа электроэнергии, выработанной солнечными панелями, в сеть или прямому потребителю — стабильный базовый источник дохода. Дополнительно снижает выбросы ПГ (парниковых газов) и экономит на квотах CO₂.",
     rev_c2_h:"Арбитраж накопителя",rev_c2_p:"Накопление энергии в часы низких цен и продажа в часы высоких — до 2 циклов заряда в сутки, используя разброс рыночных цен.",
     rev_c3_h:"Балансировка сети",rev_c3_p:"Участие в услугах балансировки и резервирования мощности, поддерживая стабильность энергосистемы и принося дополнительный доход.",
     fin_eyebrow:"Финансы",fin_h2:"Сильная и предсказуемая доходность",
@@ -506,43 +588,6 @@ window.addEventListener('load',()=>{
   marker=L.marker(SITE_COORDS,{icon}).addTo(map).bindPopup(I18N.lv.map_pin);
   L.circle(SITE_COORDS,{radius:450,color:'#3ee0c8',weight:1,fillColor:'#3ee0c8',fillOpacity:.08}).addTo(map);
 });
-
-/* ---------------- Hero particle animācija ---------------- */
-(function(){
-  const cv=document.getElementById('hero-canvas'); if(!cv) return;
-  const ctx=cv.getContext('2d'); let w,h,dpr,pts,raf,running=true;
-  const COL='62,224,200', COL2='56,189,248';
-  function size(){
-    dpr=Math.min(window.devicePixelRatio||1,2);
-    w=cv.offsetWidth; h=cv.offsetHeight;
-    cv.width=w*dpr; cv.height=h*dpr; ctx.setTransform(dpr,0,0,dpr,0,0);
-    const n=Math.min(90,Math.round(w*h/14000));
-    pts=Array.from({length:n},()=>({
-      x:Math.random()*w,y:Math.random()*h,
-      vx:(Math.random()*.5+.15)*.6, vy:(-Math.random()*.4-.1)*.6, /* diagonal drift up-right */
-      r:Math.random()*1.6+.6, c:Math.random()>.7?COL2:COL
-    }));
-  }
-  function step(){
-    ctx.clearRect(0,0,w,h);
-    for(const p of pts){
-      p.x+=p.vx; p.y+=p.vy;
-      if(p.x>w+20)p.x=-20; if(p.y<-20)p.y=h+20;
-      ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,7); ctx.fillStyle='rgba('+p.c+',.85)'; ctx.fill();
-    }
-    for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){
-      const a=pts[i],b=pts[j],dx=a.x-b.x,dy=a.y-b.y,d=dx*dx+dy*dy;
-      if(d<12000){ ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y);
-        ctx.strokeStyle='rgba('+COL+','+(0.14*(1-d/12000))+')'; ctx.lineWidth=.6; ctx.stroke(); }
-    }
-    raf=requestAnimationFrame(step);
-  }
-  function start(){ if(!running){running=true; step();} }
-  function stop(){ running=false; cancelAnimationFrame(raf); }
-  size(); step();
-  window.addEventListener('resize',()=>{cancelAnimationFrame(raf); size(); step();});
-  new IntersectionObserver(es=>{es[0].isIntersecting?start():stop();}).observe(cv);
-})();
 
 /* init */
 let saved='lv'; try{saved=localStorage.getItem('lipinas_lang')||'lv'}catch(e){}
