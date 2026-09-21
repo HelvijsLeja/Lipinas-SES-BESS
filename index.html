@@ -87,6 +87,19 @@
   ]
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Kas ir BESS?","acceptedAnswer":{"@type":"Answer","text":"BESS (bateriju enerģijas uzkrāšanas sistēma) ir akumulatoru sistēma, kas uzkrāj elektroenerģiju un atdod to tīklā vajadzīgajā brīdī. Ļipiņas projektā tā ir 5 MWh ietilpība ar 2,5 MW jaudu."}},
+    {"@type":"Question","name":"Kas ir SES?","acceptedAnswer":{"@type":"Answer","text":"SES (saules enerģijas sistēma) ir saules paneļu elektrostacija, kas ražo elektroenerģiju no saules. Ļipiņas projektā tā ir 3 MW jauda."}},
+    {"@type":"Question","name":"Kā darbojas saules + BESS parks?","acceptedAnswer":{"@type":"Answer","text":"Saules paneļi ražo elektroenerģiju, ko var pārdot tīklā vai uzkrāt akumulatoros. BESS uzkrāj enerģiju lētās cenas stundās un atdod dārgajās, kā arī nodrošina tīkla balansēšanas pakalpojumus."}},
+    {"@type":"Question","name":"Kāpēc apvienot saules paneļus ar akumulatoriem?","acceptedAnswer":{"@type":"Answer","text":"Apvienojums ļauj gūt ieņēmumus no trim plūsmām — enerģijas pārdošanas, cenu arbitrāžas un tīkla balansēšanas — un padara ienākumus stabilākus un prognozējamākus."}},
+    {"@type":"Question","name":"Kur atrodas Ļipiņas projekts?","acceptedAnswer":{"@type":"Answer","text":"Salaspils pagastā, Salaspils novadā, uz diviem zemes gabaliem — Ļipiņas un Ļipiņas 1."}}
+  ]
+}
+</script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -240,6 +253,10 @@
   footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
   footer a{color:var(--muted);text-decoration:underline;text-underline-offset:2px}
   footer a:hover{color:var(--acc)}
+  .faq-list{display:grid;gap:16px;max-width:840px}
+  .faq-item{border:1px solid var(--panel-brd);border-radius:var(--radius);background:var(--panel);padding:22px 26px}
+  .faq-item h3{font-size:17px;font-weight:600;margin-bottom:8px;color:var(--ink)}
+  .faq-item p{color:var(--muted);font-size:15px}
   .note{font-size:12px;color:var(--faint);margin-top:14px}
 </style>
 </head>
@@ -478,6 +495,20 @@
   </div>
 </section>
 
+<section id="faq" style="padding-top:20px">
+  <div class="wrap">
+    <div class="eyebrow" data-i18n="faq_eyebrow">Biežāk uzdotie jautājumi</div>
+    <h2 style="margin-bottom:34px" data-i18n="faq_h2">Īsi par SES un BESS</h2>
+    <div class="faq-list">
+      <div class="faq-item"><h3 data-i18n="faq_q1">Kas ir BESS?</h3><p data-i18n="faq_a1">BESS (bateriju enerģijas uzkrāšanas sistēma) ir akumulatoru sistēma, kas uzkrāj elektroenerģiju un atdod to tīklā vajadzīgajā brīdī. Ļipiņas projektā tā ir 5 MWh ietilpība ar 2,5 MW jaudu.</p></div>
+      <div class="faq-item"><h3 data-i18n="faq_q2">Kas ir SES?</h3><p data-i18n="faq_a2">SES (saules enerģijas sistēma) ir saules paneļu elektrostacija, kas ražo elektroenerģiju no saules. Ļipiņas projektā tā ir 3 MW jauda.</p></div>
+      <div class="faq-item"><h3 data-i18n="faq_q3">Kā darbojas saules + BESS parks?</h3><p data-i18n="faq_a3">Saules paneļi ražo elektroenerģiju, ko var pārdot tīklā vai uzkrāt akumulatoros. BESS uzkrāj enerģiju lētās cenas stundās un atdod dārgajās, kā arī nodrošina tīkla balansēšanas pakalpojumus.</p></div>
+      <div class="faq-item"><h3 data-i18n="faq_q4">Kāpēc apvienot saules paneļus ar akumulatoriem?</h3><p data-i18n="faq_a4">Apvienojums ļauj gūt ieņēmumus no trim plūsmām — enerģijas pārdošanas, cenu arbitrāžas un tīkla balansēšanas — un padara ienākumus stabilākus un prognozējamākus.</p></div>
+      <div class="faq-item"><h3 data-i18n="faq_q5">Kur atrodas Ļipiņas projekts?</h3><p data-i18n="faq_a5">Salaspils pagastā, Salaspils novadā, uz diviem zemes gabaliem — "Ļipiņas" un "Ļipiņas 1".</p></div>
+    </div>
+  </div>
+</section>
+
 <section id="kontakti" style="padding-top:20px">
   <div class="wrap">
     <div class="contact">
@@ -553,6 +584,12 @@ const I18N = {
     st3_h:"BESS papildinājums (šobrīd)",st3_p:"Izmaiņas SES tehniskajā projektā, papildinot ar BESS daļu",st4_h:"Investīciju piesaiste",st4_p:"Kapitāla piesaiste projekta realizācijai",st5_h:"Būvniecība",st5_p:"Parka izbūve un nodošana ekspluatācijā",
     ct_eyebrow:"Kontakti",ct_reg:"Reģ. Nr. 40003753491",ct_email:"E-pasts",ct_person:"Kontaktpersona",
     ct_note:"Pilns finanšu modelis, metodoloģija un tehniskā dokumentācija tiek nodrošināta ieinteresētajiem investoriem pēc pieprasījuma.",
+    faq_eyebrow:"Biežāk uzdotie jautājumi",faq_h2:"Īsi par SES un BESS",
+    faq_q1:"Kas ir BESS?",faq_a1:"BESS (bateriju enerģijas uzkrāšanas sistēma) ir akumulatoru sistēma, kas uzkrāj elektroenerģiju un atdod to tīklā vajadzīgajā brīdī. Ļipiņas projektā tā ir 5 MWh ietilpība ar 2,5 MW jaudu.",
+    faq_q2:"Kas ir SES?",faq_a2:"SES (saules enerģijas sistēma) ir saules paneļu elektrostacija, kas ražo elektroenerģiju no saules. Ļipiņas projektā tā ir 3 MW jauda.",
+    faq_q3:"Kā darbojas saules + BESS parks?",faq_a3:"Saules paneļi ražo elektroenerģiju, ko var pārdot tīklā vai uzkrāt akumulatoros. BESS uzkrāj enerģiju lētās cenas stundās un atdod dārgajās, kā arī nodrošina tīkla balansēšanas pakalpojumus.",
+    faq_q4:"Kāpēc apvienot saules paneļus ar akumulatoriem?",faq_a4:"Apvienojums ļauj gūt ieņēmumus no trim plūsmām — enerģijas pārdošanas, cenu arbitrāžas un tīkla balansēšanas — un padara ienākumus stabilākus un prognozējamākus.",
+    faq_q5:"Kur atrodas Ļipiņas projekts?",faq_a5:'Salaspils pagastā, Salaspils novadā, uz diviem zemes gabaliem — "Ļipiņas" un "Ļipiņas 1".',
     foot_copy:'© 2026 SIA "STROIPERLIT-RIGA" · SES + BESS parks Ļipiņas',
     foot_disc:"Skaitļi ir indikatīvi · Nav publisks piedāvājums iegādāties vērtspapīrus",foot_privacy:"Privātuma politika"
   },
@@ -591,6 +628,12 @@ const I18N = {
     st3_h:"BESS extension (current)",st3_p:"Amending the SES technical design to add the BESS part",st4_h:"Raising investment",st4_p:"Attracting capital to realise the project",st5_h:"Construction",st5_p:"Building the park and commissioning",
     ct_eyebrow:"Contact",ct_reg:"Reg. No. 40003753491",ct_email:"E-mail",ct_person:"Contact person",
     ct_note:"The full financial model, methodology and technical documentation are provided to interested investors on request.",
+    faq_eyebrow:"Frequently asked questions",faq_h2:"SES and BESS in brief",
+    faq_q1:"What is BESS?",faq_a1:"BESS (battery energy storage system) is a battery system that stores electricity and returns it to the grid when needed. In the Ļipiņas project it is 5 MWh capacity with 2.5 MW power.",
+    faq_q2:"What is SES?",faq_a2:"SES (solar energy system) is a solar panel power plant that generates electricity from sunlight. In the Ļipiņas project it is 3 MW.",
+    faq_q3:"How does a solar + BESS park work?",faq_a3:"Solar panels generate electricity that can be sold to the grid or stored in batteries. The BESS stores energy during low-price hours and releases it during high-price hours, and also provides grid-balancing services.",
+    faq_q4:"Why combine solar panels with batteries?",faq_a4:"The combination generates income from three streams — energy sales, price arbitrage and grid balancing — making returns more stable and predictable.",
+    faq_q5:"Where is the Ļipiņas project located?",faq_a5:'In Salaspils parish, Salaspils county, on two land plots — "Ļipiņas" and "Ļipiņas 1".',
     foot_copy:'© 2026 "STROIPERLIT-RIGA" Ltd · Ļipiņas Solar + BESS park',
     foot_disc:"Figures are indicative · Not a public offer of securities",foot_privacy:"Privacy policy"
   },
@@ -629,6 +672,12 @@ const I18N = {
     st3_h:"Расширение BESS (сейчас)",st3_p:"Изменения в техпроекте СЭС с добавлением части BESS",st4_h:"Привлечение инвестиций",st4_p:"Привлечение капитала для реализации проекта",st5_h:"Строительство",st5_p:"Строительство парка и ввод в эксплуатацию",
     ct_eyebrow:"Контакты",ct_reg:"Рег. № 40003753491",ct_email:"Эл. почта",ct_person:"Контактное лицо",
     ct_note:"Полная финансовая модель, методология и техническая документация предоставляются заинтересованным инвесторам по запросу.",
+    faq_eyebrow:"Часто задаваемые вопросы",faq_h2:"Коротко о СЭС и BESS",
+    faq_q1:"Что такое BESS?",faq_a1:"BESS (батарейная система накопления энергии) — это система аккумуляторов, которая накапливает электроэнергию и отдаёт её в сеть при необходимости. В проекте Ļipiņas это ёмкость 5 МВт·ч мощностью 2,5 МВт.",
+    faq_q2:"Что такое СЭС?",faq_a2:"СЭС (система солнечной энергии) — это солнечная электростанция, вырабатывающая электроэнергию из солнечного света. В проекте Ļipiņas это 3 МВт.",
+    faq_q3:"Как работает парк СЭС + BESS?",faq_a3:"Солнечные панели вырабатывают электроэнергию, которую можно продать в сеть или сохранить в аккумуляторах. BESS накапливает энергию в часы низких цен и отдаёт в часы высоких, а также предоставляет услуги балансировки сети.",
+    faq_q4:"Зачем объединять солнечные панели с аккумуляторами?",faq_a4:"Комбинация приносит доход из трёх источников — продажа энергии, ценовой арбитраж и балансировка сети — делая доходность более стабильной и предсказуемой.",
+    faq_q5:"Где расположен проект Ļipiņas?",faq_a5:'В Саласпилсской волости, Саласпилсский край, на двух земельных участках — «Ļipiņas» и «Ļipiņas 1».',
     foot_copy:'© 2026 ООО «STROIPERLIT-RIGA» · Парк СЭС + BESS Ļipiņas',
     foot_disc:"Показатели ориентировочны · Не является публичным предложением ценных бумаг",foot_privacy:"Политика конфиденциальности"
   },
@@ -667,6 +716,12 @@ const I18N = {
     st3_h:"BESS-Erweiterung (aktuell)",st3_p:"Anpassung des technischen SES-Entwurfs um den BESS-Teil",st4_h:"Investorengewinnung",st4_p:"Kapitalbeschaffung zur Projektrealisierung",st5_h:"Bau",st5_p:"Errichtung des Parks und Inbetriebnahme",
     ct_eyebrow:"Kontakt",ct_reg:"Reg.-Nr. 40003753491",ct_email:"E-Mail",ct_person:"Ansprechpartner",
     ct_note:"Das vollständige Finanzmodell, die Methodik und die technische Dokumentation werden interessierten Investoren auf Anfrage zur Verfügung gestellt.",
+    faq_eyebrow:"Häufig gestellte Fragen",faq_h2:"SES und BESS kurz erklärt",
+    faq_q1:"Was ist BESS?",faq_a1:"BESS (Batterie-Energiespeichersystem) ist ein Batteriesystem, das Strom speichert und bei Bedarf ins Netz zurückgibt. Im Projekt Ļipiņas sind es 5 MWh Kapazität mit 2,5 MW Leistung.",
+    faq_q2:"Was ist SES?",faq_a2:"SES (Solarenergiesystem) ist ein Solarkraftwerk, das Strom aus Sonnenlicht erzeugt. Im Projekt Ļipiņas sind es 3 MW.",
+    faq_q3:"Wie funktioniert ein Solar-+-BESS-Park?",faq_a3:"Solarmodule erzeugen Strom, der ins Netz verkauft oder in Batterien gespeichert werden kann. Das BESS speichert Energie in Niedrigpreisstunden und gibt sie in Hochpreisstunden ab und bietet zudem Netzausgleichsdienste.",
+    faq_q4:"Warum Solarmodule mit Batterien kombinieren?",faq_a4:"Die Kombination erzielt Einnahmen aus drei Strömen — Energieverkauf, Preisarbitrage und Netzausgleich — und macht die Rendite stabiler und planbarer.",
+    faq_q5:"Wo befindet sich das Projekt Ļipiņas?",faq_a5:'In der Gemeinde Salaspils, Bezirk Salaspils, auf zwei Grundstücken — "Ļipiņas" und "Ļipiņas 1".',
     foot_copy:'© 2026 SIA "STROIPERLIT-RIGA" · Ļipiņas Solar + BESS Park',
     foot_disc:"Angaben sind Richtwerte · Kein öffentliches Wertpapierangebot",foot_privacy:"Datenschutzerklärung"
   }
