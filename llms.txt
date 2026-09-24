@@ -11,6 +11,13 @@
 - Zemes gabali: "Ļipiņas" (kadastra Nr. 8031 014 0020) un "Ļipiņas 1" (kadastra Nr. 8031 014 0315)
 - Atrašanās: Salaspils pagasts, Salaspils novads, Latvija (blakus Knauf rūpnīcai)
 - Koordinātas: 56.90455, 24.36405
+- PV moduļi: 4304 × TSM-NEG21C.20 (2384 × 1303 mm, 695–720 W), austrumu–rietumu orientācija
+- PV jauda (DC): 3077 kW (98 trekeri × 40 PV + 12 trekeri × 32 PV)
+
+## Brīvā attīstības zona
+SES un BESS neaizņem visu 4,2 ha teritoriju — aptuveni 2 ha paliek brīvi. Tur var attīstīt
+ražošanas attīstības projektus, kuriem vajadzīga lēta, uz vietas saražota elektroenerģija: datu centru,
+ūdeņraža ražošanu (elektrolīzi) vai citas energoietilpīgas ražotnes.
 
 ## Ieņēmumu modelis (trīs plūsmas)
 1. Saules enerģijas pārdošana tīklā vai tiešajam patērētājam; papildus SEG (siltumnīcefekta gāzu) emisiju samazinājums un CO2 kvotu ietaupījums.
