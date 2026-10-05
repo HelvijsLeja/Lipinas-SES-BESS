@@ -16,13 +16,13 @@ Attīstītājs: SIA "STROIPERLIT-RIGA".
 
 ## Tehniskais
 
-Viens pašpietiekams `index.html` fails. Bez build soļa. Ārējās atkarības (no CDN):
+`index.html` ir LV avots; `/en/`, `/de/`, `/ru/` ģenerē `python3 build.py` (rediģē tikai `index.html`, tad palaid skriptu). Leaflet un fonti ir vietnē (`leaflet/`, `fonts/`). Ārējās atkarības:
 
-- [Leaflet](https://leafletjs.com/) — karte
+- [Leaflet](https://leafletjs.com/) 1.9.4 — karte (self-host)
 - [OpenStreetMap](https://www.openstreetmap.org/) / [OpenTopoMap](https://opentopomap.org/) — kartes slāņi
-- Google Fonts (Space Grotesk, Inter)
+- Fonti Space Grotesk, Inter — self-host
 
-Pieejamas 3 valodas (LV / EN / RU) ar pārslēgu; izvēle saglabājas pārlūkā.
+Četras valodas (LV / EN / DE / RU), katrai savs URL ar hreflang.
 
 ### Kartes koordinātas
 
