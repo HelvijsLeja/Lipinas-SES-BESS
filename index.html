@@ -149,6 +149,7 @@
   .nav-cta{padding:9px 18px;border-radius:999px;background:var(--acc);color:#fff;font-weight:600;font-size:14px;transition:.2s;white-space:nowrap}
   .nav-cta:hover{transform:translateY(-1px);box-shadow:0 8px 22px var(--acc-glow)}
   @media(max-width:900px){.nav-links{display:none}}
+  @media(max-width:560px){nav .wrap{gap:8px;padding-left:16px;padding-right:16px}.brand .en{display:none}.nav-right{gap:8px}.lang button{padding:5px 7px}.nav-cta{padding:8px 10px;font-size:13px;white-space:normal;text-align:center;line-height:1.15}h1{font-size:clamp(28px,8vw,38px);overflow-wrap:break-word;hyphens:auto}}
 
   header{padding:80px 0 16px;position:relative;overflow:hidden}
   header .wrap{position:relative;z-index:2;text-align:center}
@@ -233,7 +234,7 @@
   .map-fact .v{font-family:'Space Grotesk';font-weight:600;font-size:17px;margin-top:3px}
 
   .timeline{display:grid;grid-template-columns:repeat(5,1fr);gap:0}
-  .step{padding:24px 20px 0;position:relative}
+  .step{padding:24px 20px 0;position:relative;min-width:0;overflow-wrap:break-word;hyphens:auto}
   .step::before{content:"";position:absolute;top:8px;left:0;right:0;height:2px;background:var(--panel-brd)}
   .step.done::before{background:var(--acc)}
   .step .node{width:16px;height:16px;border-radius:50%;background:var(--bg);border:2px solid var(--panel-brd);position:absolute;top:1px;left:0}
@@ -318,7 +319,7 @@
 
 <nav>
   <div class="wrap">
-    <div class="brand"><span class="dot"></span> Ļipiņas <span style="color:var(--faint);font-weight:400">Energy</span></div>
+    <div class="brand"><span class="dot"></span> Ļipiņas <span class="en" style="color:var(--faint);font-weight:400">Energy</span></div>
     <div class="nav-links">
       <a href="#projekts" data-i18n="nav_project">Projekts</a>
       <a href="#ienemumi" data-i18n="nav_revenue">Ieņēmumi</a>
