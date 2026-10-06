@@ -2,7 +2,7 @@
 
 > Saules enerģijas sistēma (SES) un bateriju enerģijas uzkrāšanas sistēma (BESS)
 > Salaspils novadā, Latvijā. Investīciju iespēja Baltijas atjaunīgās enerģijas sektorā.
-> Attīstītājs: SIA "STROIPERLIT-RIGA".
+> Attīstītājs: SIA „STROIPERLIT-RIGA“.
 
 ## Projekta parametri
 - Saules enerģijas sistēma (SES): 3 MWp uzstādītā jauda, 2,5 MW jauda tīklā
@@ -39,7 +39,7 @@ ražošanas attīstības projektus, kuriem vajadzīga lēta, uz vietas saražota
 - Nākamie posmi: investīciju piesaiste, būvniecība.
 
 ## Kontakti
-- SIA "STROIPERLIT-RIGA", reģ. Nr. 40003753491
+- SIA „STROIPERLIT-RIGA“, reģ. Nr. 40003753491
 - Adrese: Mazā Kalna iela 13-2, Rīga, LV-1003, Latvija
 - E-pasts: info@lipinasenergy.com
 - Tīmeklis: https://lipinasenergy.com/

@@ -15,6 +15,7 @@ LOCALE = {"lv": "lv_LV", "en": "en_US", "de": "de_DE", "ru": "ru_RU"}
 
 META = {
     "en": {
+        "org": "“STROIPERLIT-RIGA” Ltd (SIA)",
         "title": "Ļipiņas SES + BESS Park — Solar and Battery Storage Project",
         "desc": "Ļipiņas SES + BESS: 3 MW solar system with 5 MWh battery storage in Salaspils region, next to Knauf. Investment opportunity in Baltic renewables.",
         "og_desc": "3 MW solar system with 5 MWh battery storage in Salaspils region. Investment opportunity in the Baltic renewable energy sector.",
@@ -24,6 +25,7 @@ META = {
         "place_desc": "3 MW solar energy system (SES) and 5 MWh battery energy storage system (BESS) on the plots \"Ļipiņas\" and \"Ļipiņas 1\".",
     },
     "de": {
+        "org": "„STROIPERLIT-RIGA“ GmbH (SIA)",
         "title": "Ļipiņas SES + BESS Park — Solar- und Batteriespeicherprojekt",
         "desc": "Ļipiņas SES + BESS: 3-MW-Solaranlage mit 5 MWh Batteriespeicher in Salaspils, neben Knauf. Investitionsmöglichkeit im baltischen Energiesektor.",
         "og_desc": "3-MW-Solaranlage mit 5 MWh Batteriespeicher in der Gemeinde Salaspils. Investitionsmöglichkeit im baltischen Sektor für erneuerbare Energien.",
@@ -33,6 +35,7 @@ META = {
         "place_desc": "3-MW-Solarenergiesystem (SES) und 5-MWh-Batterie-Energiespeichersystem (BESS) auf den Grundstücken „Ļipiņas“ und „Ļipiņas 1“.",
     },
     "ru": {
+        "org": "ООО «STROIPERLIT-RIGA» (SIA)",
         "title": "Ļipiņas СЭС + BESS — солнечная энергия и накопители",
         "desc": "Ļipiņas СЭС + BESS: солнечная система 3 МВт с накопителем 5 МВт·ч в Саласпилсском крае, рядом с Knauf. Инвестиции в возобновляемую энергетику Балтии.",
         "og_desc": "Солнечная система 3 МВт с накопителем 5 МВт·ч в Саласпилсском крае. Инвестиционная возможность в секторе возобновляемой энергии Балтии.",
@@ -89,6 +92,13 @@ def build(lang, src, I18N):
                "".join('<meta property="og:locale:alternate" content="%s">\n' % LOCALE[l] for l in URL if l != lang), h, 1)
     h = meta(h, "twitter:title", M["tw_title"])
     h = meta(h, "twitter:description", M["tw_desc"])
+    # uzņēmuma nosaukums pēc valodas (legalName paliek reģistrētais LV nosaukums)
+    lv_org = "SIA „STROIPERLIT-RIGA“"
+    h = meta(h, "author", M["org"])
+    for old, new in (('"name": "%s",' % lv_org, '"name": "%s",' % M["org"]),
+                     ("<h3>%s</h3>" % lv_org, "<h3>%s</h3>" % M["org"])):
+        assert h.count(old) == 1, old
+        h = h.replace(old, new)
     h = h.replace('<link rel="canonical" href="%s/">' % BASE, '<link rel="canonical" href="%s%s">' % (BASE, URL[lang]), 1)
     h = h.replace('"inLanguage": ["lv", "en", "de", "ru"],', '"inLanguage": ["lv", "en", "de", "ru"],', 1)
     # JSON-LD apraksti
