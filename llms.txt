@@ -26,7 +26,7 @@ ražošanas attīstības projektus, kuriem vajadzīga lēta, uz vietas saražota
 
 ## Finanšu rādītāji (10 gadu modelis, 9% diskonta likme)
 - IRR: 22–32%
-- ROI (kumulatīvs): 141–214%
+- ROI (kumulatīvs): 143–214%
 - Vienkāršā atmaksāšanās: 3–4 gadi
 - Kopējais projekta CAPEX: ~2,3 miljoni EUR
 - Diapazoni atspoguļo divas CAPEX bāzes (tikai iekārtas / pilns projekts).
