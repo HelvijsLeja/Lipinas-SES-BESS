@@ -21,9 +21,9 @@ ražošanas attīstības projektus, kuriem vajadzīga lēta, uz vietas saražota
 ūdeņraža ražošanu (elektrolīzi) vai citas energoietilpīgas ražotnes.
 
 ## Ieņēmumu modelis (trīs plūsmas)
-1. Saules enerģijas pārdošana tīklā vai tiešajam patērētājam; papildus SEG (siltumnīcefekta gāzu) emisiju samazinājums un CO2 kvotu ietaupījums.
+1. Saules enerģijas pārdošana tīklā vai, vienojoties, tiešajam patērētājam.
 2. Akumulatoru arbitrāža — enerģijas uzkrāšana lētās cenas stundās un pārdošana dārgās, izmantojot cenu svārstības tirgū.
-3. Tīkla balansēšanas un jaudas rezerves pakalpojumi.
+3. Tīkla balansēšanas pakalpojumi (iespējama dalība, atkarībā no kvalifikācijas un tirgus apstākļiem).
 
 ## Finanšu informācija
 - Indikatīvais kopējais ieguldījums: ~2,3 miljoni EUR.
