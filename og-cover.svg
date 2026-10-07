@@ -21,7 +21,7 @@
   <!-- text -->
   <text x="80" y="150" font-family="'Space Grotesk',sans-serif" font-size="30" font-weight="600" letter-spacing="4" fill="#0d9488">ĻIPIŅAS ENERGY</text>
   <text x="76" y="250" font-family="'Space Grotesk','DejaVu Sans',sans-serif" font-size="82" font-weight="700" fill="#0d1526">SES + BESS parks</text>
-  <text x="80" y="320" font-family="'Inter','DejaVu Sans',sans-serif" font-size="34" font-weight="500" fill="#47566c">3 MW saules enerģijas sistēma + 5 MWh bateriju uzkrāšana</text>
+  <text x="80" y="320" font-family="'Inter','DejaVu Sans',sans-serif" font-size="29" font-weight="500" fill="#47566c">3 MW saules enerģijas sistēma + 5 MWh akumulatoru enerģijas uzkrāšana</text>
   <text x="80" y="366" font-family="'Inter','DejaVu Sans',sans-serif" font-size="28" font-weight="500" fill="#748196">Salaspils novads, Latvija · Investīciju iespēja</text>
   <rect x="80" y="392" width="150" height="6" rx="3" fill="url(#acc)"/>
 </svg>

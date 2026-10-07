@@ -50,6 +50,19 @@ META = {
 }
 
 
+# Statiskās skaitļu vērtības pēc valodas (LV avots → valoda); decimālzīme, tūkstošu atdalītājs, mērvienības
+N = "\u00a0"
+SPEC = {
+    "en": [("3"+N+"MWp", "3"+N+"MWp"), ("5"+N+"MWh", "5"+N+"MWh"), ("2,5"+N+"MW", "2.5"+N+"MW"),
+           ("4,5"+N+"MWh", "4.5"+N+"MWh"), ("4,2"+N+"ha", "4.2"+N+"ha"), ("4"+N+"304", "4,304"),
+           ("3"+N+"077"+N+"kW", "3,077"+N+"kW"), ("2384 × 1303"+N+"mm", "2384 × 1303"+N+"mm")],
+    "de": [],
+    "ru": [("3"+N+"MWp", "3"+N+"МВт (пик)"), ("5"+N+"MWh", "5"+N+"МВт·ч"), ("2,5"+N+"MW", "2,5"+N+"МВт"),
+           ("4,5"+N+"MWh", "4,5"+N+"МВт·ч"), ("4,2"+N+"ha", "4,2"+N+"га"), ("4"+N+"304", "4"+N+"304"),
+           ("3"+N+"077"+N+"kW", "3"+N+"077"+N+"кВт"), ("2384 × 1303"+N+"mm", "2384 × 1303"+N+"мм")],
+}
+
+
 def load_i18n(src):
     js = re.search(r"const I18N = (\{.*?\n\});", src, re.S).group(1)
     out = subprocess.run(
@@ -98,6 +111,10 @@ def build(lang, src, I18N):
     # uzņēmuma nosaukums pēc valodas (legalName paliek reģistrētais LV nosaukums)
     lv_org = "SIA „STROIPERLIT-RIGA“"
     h = meta(h, "author", M["org"])
+    for old, new in SPEC[lang]:
+        old_b, new_b = "<b>%s</b>" % old, "<b>%s</b>" % new
+        assert h.count(old_b) == 1, old_b
+        h = h.replace(old_b, new_b)
     old = '<div class="n">~€2,3M</div><div class="l" data-i18n="fin_capex">'
     assert h.count(old) == 1, old
     h = h.replace(old, old.replace("~€2,3M", M["capex"]))
