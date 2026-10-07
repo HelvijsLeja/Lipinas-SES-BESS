@@ -108,7 +108,7 @@ def build(lang, src, I18N):
     h = h.replace('<link rel="canonical" href="%s/">' % BASE, '<link rel="canonical" href="%s%s">' % (BASE, URL[lang]), 1)
     h = h.replace('"inLanguage": ["lv", "en", "de", "ru"],', '"inLanguage": ["lv", "en", "de", "ru"],', 1)
     # JSON-LD apraksti
-    lv_site = re.search(r'"description": "(3 MW saules enerģijas sistēma ar 5 MWh bateriju enerģijas uzkrāšanu Salaspils novadā, Latvijā\.)"', h).group(1)
+    lv_site = re.search(r'"description": "(3 MW saules enerģijas sistēma ar 5 MWh akumulatoru enerģijas uzkrāšanas sistēmu Salaspils novadā, Latvijā\.)"', h).group(1)
     h = h.replace(lv_site, M["site_desc"], 1)
     lv_place = re.search(r'"description": "(3 MW saules enerģijas sistēma \(SES\) un 5 MWh[^\n]*?)",\n', h).group(1)
     h = h.replace(lv_place, M["place_desc"].replace('"', '\\"'), 1)

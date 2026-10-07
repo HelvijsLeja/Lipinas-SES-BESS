@@ -1,12 +1,12 @@
 # Ļipiņas Energy — SES + BESS parks
 
-> Saules enerģijas sistēma (SES) un bateriju enerģijas uzkrāšanas sistēma (BESS)
+> Saules enerģijas sistēma (SES) un akumulatoru enerģijas uzkrāšanas sistēma (BESS)
 > Salaspils novadā, Latvijā. Investīciju iespēja Baltijas atjaunīgās enerģijas sektorā.
 > Attīstītājs: SIA „STROIPERLIT-RIGA“.
 
 ## Projekta parametri
 - Saules enerģijas sistēma (SES): 3 MWp uzstādītā jauda
-- Bateriju enerģijas uzkrāšanas sistēma (BESS): 5 MWh ietilpība
+- Akumulatoru enerģijas uzkrāšanas sistēma (BESS): 5 MWh ietilpība
 - Kopīgā jauda tīklā (PV + BESS): 2,5 MW
 - Akumulatora efektivitāte: 90% round-trip
 - Zemes gabali: "Ļipiņas" (kadastra Nr. 8031 014 0020) un "Ļipiņas 1" (kadastra Nr. 8031 014 0315)
