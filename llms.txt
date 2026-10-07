@@ -5,8 +5,9 @@
 > Attīstītājs: SIA „STROIPERLIT-RIGA“.
 
 ## Projekta parametri
-- Saules enerģijas sistēma (SES): 3 MWp uzstādītā jauda, 2,5 MW jauda tīklā
-- Bateriju enerģijas uzkrāšanas sistēma (BESS): 5 MWh ietilpība, 2,5 MW jauda tīklā
+- Saules enerģijas sistēma (SES): 3 MWp uzstādītā jauda
+- Bateriju enerģijas uzkrāšanas sistēma (BESS): 5 MWh ietilpība
+- Kopīgā jauda tīklā (PV + BESS): 2,5 MW
 - Akumulatora efektivitāte: 90% round-trip
 - Zemes gabali: "Ļipiņas" (kadastra Nr. 8031 014 0020) un "Ļipiņas 1" (kadastra Nr. 8031 014 0315)
 - Atrašanās: Salaspils pagasts, Salaspils novads, Latvija (blakus Knauf rūpnīcai)
@@ -21,22 +22,18 @@ ražošanas attīstības projektus, kuriem vajadzīga lēta, uz vietas saražota
 
 ## Ieņēmumu modelis (trīs plūsmas)
 1. Saules enerģijas pārdošana tīklā vai tiešajam patērētājam; papildus SEG (siltumnīcefekta gāzu) emisiju samazinājums un CO2 kvotu ietaupījums.
-2. Akumulatoru arbitrāža — līdz 2 uzlādes cikliem dienā, izmantojot tirgus cenu svārstības.
+2. Akumulatoru arbitrāža — enerģijas uzkrāšana lētās cenas stundās un pārdošana dārgās, izmantojot cenu svārstības tirgū.
 3. Tīkla balansēšanas un jaudas rezerves pakalpojumi.
 
-## Finanšu rādītāji (10 gadu modelis, 9% diskonta likme)
-- IRR: 22–32%
-- ROI (kumulatīvs): 143–214%
-- Vienkāršā atmaksāšanās: 3–4 gadi
-- Kopējais projekta CAPEX: ~2,3 miljoni EUR
-- Diapazoni atspoguļo divas CAPEX bāzes (tikai iekārtas / pilns projekts).
-- NPV un pilna 10 gadu naudas plūsma pieejama pēc pieprasījuma.
+## Finanšu informācija
+- Indikatīvais kopējais ieguldījums: ~2,3 miljoni EUR.
+- Finanšu modelis tiek atjaunināts atbilstoši precizētajiem pieslēguma nosacījumiem; detalizēts aprēķins pēc pieprasījuma. Aprēķini nav ienesīguma garantija.
 
 ## Statuss
-- Tehniskais projekts saskaņots, saņemta būvatļauja.
-- Izbūvēts pieslēgums AS "Sadales tīkls".
-- Šobrīd: izmaiņas SES tehniskajā projektā, papildinot ar BESS daļu.
-- Nākamie posmi: investīciju piesaiste, būvniecība.
+- SES tehniskais projekts saskaņots, saņemta SES būvatļauja.
+- SES pieslēgums AS „Sadales tīkls“ izbūvēts un nodots ekspluatācijā.
+- Šobrīd: tiek projektēta BESS un tās pieslēgums esošajā SES pieslēguma vietā; tiek veiktas izmaiņas SES tehniskajā projektā, papildinot ar BESS daļu.
+- Nākamie posmi: finansējuma piesaiste vai projekta pārdošana; būvniecība (SES un BESS būvniecība var notikt vienlaikus).
 
 ## Kontakti
 - SIA „STROIPERLIT-RIGA“, reģ. Nr. 40003753491
@@ -45,7 +42,7 @@ ražošanas attīstības projektus, kuriem vajadzīga lēta, uz vietas saražota
 - Tīmeklis: https://lipinasenergy.com/
 
 ## Piezīme
-Skaitļi ir indikatīvi un nav publisks piedāvājums iegādāties vērtspapīrus.
+Skaitļi ir indikatīvi, prognozējoši un nav auditēti; tas nav publisks piedāvājums iegādāties vērtspapīrus vai ieguldījumu konsultācija.
 
 ## Valodas
 - LV: https://lipinasenergy.com/

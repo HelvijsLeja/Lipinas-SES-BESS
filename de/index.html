@@ -126,7 +126,7 @@
       "name": "Warum Solarmodule mit Batterien kombinieren?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Die Kombination erzielt Einnahmen aus drei Strömen — Energieverkauf, Preisarbitrage und Netzausgleich — und macht die Rendite stabiler und planbarer."
+        "text": "Die Kombination kann Erlöse aus drei Quellen erzielen — Energieverkauf, Preisarbitrage und Netzausgleich — und diversifiziert so die Einnahmen und verringert die Abhängigkeit von einer einzigen Quelle."
       }
     },
     {
@@ -253,10 +253,10 @@
   .spec-row b{font-family:'Space Grotesk';font-weight:600;font-size:16px;text-align:right}
 
   .fin{border:1px solid var(--panel-brd);border-radius:22px;background:linear-gradient(160deg,rgba(62,224,138,.06),rgba(56,189,248,.05));padding:46px;text-align:center;overflow:hidden}
-  .fin-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin:32px 0 22px}
+  .fin-grid{display:flex;justify-content:center;gap:20px;margin:32px 0 22px}
   .fin-item .n{font-family:'Space Grotesk';font-size:30px;font-weight:600;color:var(--acc)}
   .fin-item .l{font-size:13px;color:var(--faint);margin-top:4px}
-  @media(max-width:760px){.fin-grid{grid-template-columns:repeat(2,1fr);gap:16px}.fin{padding:32px 22px}}
+  @media(max-width:760px){.fin-grid{gap:16px}.fin{padding:32px 22px}}
   .finnote{font-size:13px;color:var(--faint);margin-bottom:20px}
 
   #map{height:420px;width:100%;border-radius:var(--radius);border:1px solid var(--panel-brd);z-index:1}
@@ -498,7 +498,7 @@
     <p class="sec-lead" data-i18n="rev_lead">Die Kombination aus Solar + BESS erzielt Einnahmen nicht nur aus der erzeugten Energie, sondern auch aus dem Energiehandel und aus Netzausgleichsdiensten.</p>
     <div class="cards">
       <div class="card"><div class="ico">☀️</div><h3 data-i18n="rev_c1_h">Verkauf von Solarenergie</h3><p data-i18n="rev_c1_p">Verkauf des von den Solarmodulen erzeugten Stroms ins Netz oder an einen Direktverbraucher — eine stabile Basisertragsquelle. Zusätzlich werden THG-Emissionen (Treibhausgase) reduziert und Kosten für CO₂-Zertifikate eingespart.</p></div>
-      <div class="card"><div class="ico">🔋</div><h3 data-i18n="rev_c2_h">Batteriearbitrage</h3><p data-i18n="rev_c2_p">Speicherung von Energie in Niedrigpreisstunden und Verkauf in Hochpreisstunden — bis zu 2 Ladezyklen pro Tag, um Marktpreisunterschiede zu nutzen.</p></div>
+      <div class="card"><div class="ico">🔋</div><h3 data-i18n="rev_c2_h">Batteriearbitrage</h3><p data-i18n="rev_c2_p">Speicherung von Energie in Niedrigpreisstunden und Verkauf in Hochpreisstunden, um Marktpreisunterschiede zu nutzen.</p></div>
       <div class="card"><div class="ico">⚡</div><h3 data-i18n="rev_c3_h">Netzausgleich</h3><p data-i18n="rev_c3_p">Teilnahme an Ausgleichs- und Reserveleistungsdiensten zur Unterstützung der Netzstabilität und für zusätzliche Einnahmen.</p></div>
     </div>
   </div>
@@ -508,15 +508,12 @@
   <div class="wrap">
     <div class="fin">
       <div class="eyebrow" style="margin-bottom:10px" data-i18n="fin_eyebrow">Finanzen</div>
-      <h2 style="margin-bottom:14px" data-i18n="fin_h2">Starke und planbare Rendite</h2>
-      <p class="sec-lead" style="margin:0 auto 8px" data-i18n="fin_lead">Ein 10-Jahres-Investitionsmodell mit doppelter CAPEX-Basis (nur Anlagen / Gesamtprojekt) und 9 % Diskontsatz — im Einklang mit baltischen Benchmarks für Solar + Speicher.</p>
+      <h2 style="margin-bottom:14px" data-i18n="fin_h2">Finanzkennzahlen werden aktualisiert</h2>
+      <p class="sec-lead" style="margin:0 auto 8px" data-i18n="fin_lead">Eine SES mit 3 MWp und einem 2,5-MW-Anschluss an das Netz von AS „Sadales tīkls“ sowie ein in Planung befindliches Batteriesystem mit 2,5 MW / 5 MWh, das am selben Netzanschlusspunkt angeschlossen wird. Gesamte Einspeiseleistung 2,5 MW. Das Finanzmodell wird an die präzisierten Anschlussbedingungen angepasst; detaillierte Berechnungen sind für interessierte Investoren auf Anfrage erhältlich. Prognosen sind keine Renditegarantie.</p>
       <div class="fin-grid">
-        <div class="fin-item"><div class="n">22–32%</div><div class="l" data-i18n="fin_irr">IRR (10 Jahre)</div></div>
-        <div class="fin-item"><div class="n">143–214%</div><div class="l" data-i18n="fin_roi">ROI (10 Jahre, kumuliert)</div></div>
-        <div class="fin-item"><div class="n">3–4 <span data-i18n="fin_years">Jahre</span></div><div class="l" data-i18n="fin_payback">Einfache Amortisationszeit</div></div>
-        <div class="fin-item"><div class="n">~€2,3M</div><div class="l" data-i18n="fin_capex">Gesamt-CAPEX des Projekts</div></div>
+        <div class="fin-item"><div class="n">~€2,3M</div><div class="l" data-i18n="fin_capex">Indikatives Gesamtinvestitionsvolumen</div></div>
       </div>
-      <p class="finnote" data-i18n="fin_note">Die Bereiche spiegeln die zwei CAPEX-Basen wider (nur Anlagen / Gesamtprojekt). NPV und der vollständige 10-Jahres-Cashflow sind auf Anfrage erhältlich.</p>
+      <p class="finnote" data-i18n="fin_note">Die Angaben sind Richtwerte. Detaillierte Berechnungen und Sensitivitätsanalysen sind für interessierte Investoren auf Anfrage erhältlich.</p>
       <a href="#kontakti" class="btn btn-primary" data-i18n="fin_cta">Vollständiges Finanzmodell anfordern</a>
     </div>
   </div>
@@ -630,7 +627,7 @@
     <div class="timeline">
       <div class="step done"><span class="node"></span><h3 data-i18n="st1_h">Technischer Entwurf</h3><p data-i18n="st1_p">Technischer Entwurf der SES genehmigt, Baugenehmigung für die SES erhalten</p></div>
       <div class="step done"><span class="node"></span><h3 data-i18n="st2_h">SES-Netzanschluss gebaut und in Betrieb genommen</h3><p data-i18n="st2_p">SES-Anschluss an AS „Sadales tīkls“ errichtet und in Betrieb genommen</p></div>
-      <div class="step current"><span class="node"></span><h3 data-i18n="st3_h">BESS-Planung und Anpassung des SES-Entwurfs (aktuell)</h3><p data-i18n="st3_p">Das BESS und sein Anschluss an AS „Sadales tīkls“ werden geplant; der technische SES-Entwurf wird um den BESS-Teil ergänzt</p></div>
+      <div class="step current"><span class="node"></span><h3 data-i18n="st3_h">BESS-Planung und Anpassung des SES-Entwurfs (aktuell)</h3><p data-i18n="st3_p">Das BESS und sein Anschluss am bestehenden SES-Netzanschlusspunkt werden geplant; der technische SES-Entwurf wird um den BESS-Teil ergänzt</p></div>
       <div class="step current"><span class="node"></span><h3 data-i18n="st4_h">Finanzierung oder Verkauf</h3><p data-i18n="st4_p">Offen für verschiedene Transaktionsformen: Investition gegen Kapitalbeteiligung, Darlehen zur Projektrealisierung oder Verkauf des Projekts im Ist-Zustand</p></div>
       <div class="step"><span class="node"></span><h3 data-i18n="st5_h">Bau</h3><p data-i18n="st5_p">Errichtung des Parks und Inbetriebnahme; SES und BESS können gleichzeitig gebaut werden</p></div>
     </div>
@@ -645,7 +642,7 @@
       <div class="faq-item"><h3 data-i18n="faq_q1">Was ist BESS?</h3><p data-i18n="faq_a1">BESS (Battery Energy Storage System — Batterie-Energiespeichersystem) ist ein Batteriesystem, das Strom speichert und bei Bedarf ins Netz zurückgibt. Im Projekt Ļipiņas sind es 5 MWh Kapazität mit 2,5 MW Leistung.</p></div>
       <div class="faq-item"><h3 data-i18n="faq_q2">Was ist SES?</h3><p data-i18n="faq_a2">SES (Solarenergiesystem) ist ein Solarkraftwerk, das Strom aus Sonnenlicht erzeugt. Im Projekt Ļipiņas sind es 3 MW.</p></div>
       <div class="faq-item"><h3 data-i18n="faq_q3">Wie funktioniert ein Solar-+-BESS-Park?</h3><p data-i18n="faq_a3">Solarmodule erzeugen Strom, der ins Netz verkauft oder in Batterien gespeichert werden kann. Das BESS speichert Energie in Niedrigpreisstunden und gibt sie in Hochpreisstunden ab und bietet zudem Netzausgleichsdienste.</p></div>
-      <div class="faq-item"><h3 data-i18n="faq_q4">Warum Solarmodule mit Batterien kombinieren?</h3><p data-i18n="faq_a4">Die Kombination erzielt Einnahmen aus drei Strömen — Energieverkauf, Preisarbitrage und Netzausgleich — und macht die Rendite stabiler und planbarer.</p></div>
+      <div class="faq-item"><h3 data-i18n="faq_q4">Warum Solarmodule mit Batterien kombinieren?</h3><p data-i18n="faq_a4">Die Kombination kann Erlöse aus drei Quellen erzielen — Energieverkauf, Preisarbitrage und Netzausgleich — und diversifiziert so die Einnahmen und verringert die Abhängigkeit von einer einzigen Quelle.</p></div>
       <div class="faq-item"><h3 data-i18n="faq_q5">Wo befindet sich das Projekt Ļipiņas?</h3><p data-i18n="faq_a5">In der Gemeinde Salaspils, Bezirk Salaspils, auf zwei Grundstücken — „Ļipiņas“ und „Ļipiņas 1“.</p></div>
     </div>
   </div>
@@ -673,7 +670,7 @@
 <footer>
   <div class="wrap">
     <span data-i18n="foot_copy">© 2026 „STROIPERLIT-RIGA“ GmbH (SIA) · Ļipiņas Solar + BESS Park</span>
-    <span><a href="/privacy.html" data-i18n="foot_privacy">Datenschutzerklärung</a> · <span data-i18n="foot_disc">Angaben sind Richtwerte · Kein öffentliches Wertpapierangebot</span></span>
+    <span><a href="/privacy.html" data-i18n="foot_privacy">Datenschutzerklärung</a> · <span data-i18n="foot_disc">Angaben sind Richtwerte, zukunftsgerichtet und ungeprüft; die tatsächlichen Ergebnisse können erheblich abweichen · Kein öffentliches Wertpapierangebot und keine Anlageberatung · Investitionen sind mit Risiken verbunden, einschließlich eines möglichen Kapitalverlusts</span></span>
   </div>
 </footer>
 
@@ -693,7 +690,7 @@ const SITE_ZOOM   = 14;
 const I18N = {
   lv:{
     nav_project:"Projekts",nav_revenue:"Ieņēmumi",nav_location:"Atrašanās vieta",nav_finance:"Finanses",nav_contact:"Kontakti",nav_cta:"Sazināties",
-    hero_pill:"SES pieslēgums nodots ekspluatācijā · BESS pieslēgums projektēšanā",
+    hero_pill:"SES pieslēgums nodots ekspluatācijā · BESS un tās pieslēgums projektēšanā",
     hero_h1:"Saules enerģijas sistēma 3 MW + akumulatoru enerģijas uzkrāšanas sistēma (BESS) 5 MWh",
     hero_lead:"Investīciju iespēja Baltijas atjaunīgās enerģijas sektorā: 3 MW saules elektrostacija apvienojumā ar 5 MWh akumulatoru sistēmu 4,2 ha zemes gabalā. Blakus atrodas vairāki industriāli elektroenerģijas patērētāji, tostarp ražotnes un loģistikas noliktavas.",
     hero_cta1:"Skatīt finanšu rādītājus",hero_cta2:"Uzzināt vairāk",
@@ -710,12 +707,12 @@ const I18N = {
     rev_eyebrow:"Ieņēmumu modelis",rev_h2:"Trīs papildinošas ieņēmumu plūsmas",
     rev_lead:"SES + BESS kombinācija ļauj gūt ieņēmumus ne tikai no saražotās enerģijas, bet arī no enerģijas tirdzniecības un tīkla balansēšanas pakalpojumiem.",
     rev_c1_h:"Saules enerģijas pārdošana",rev_c1_p:"Saules paneļu saražotās elektroenerģijas pārdošana tīklā vai tiešajam patērētājam — stabils bāzes ieņēmumu avots. Papildus samazina SEG (siltumnīcefekta gāzu) emisijas un ietaupa CO₂ kvotu izmaksas.",
-    rev_c2_h:"Akumulatoru arbitrāža",rev_c2_p:"Enerģijas uzkrāšana lētās cenas stundās un pārdošana dārgās — līdz 2 uzlādes cikliem dienā, izmantojot cenu svārstības tirgū.",
+    rev_c2_h:"Akumulatoru arbitrāža",rev_c2_p:"Enerģijas uzkrāšana zemu cenu stundās un pārdošana augstu cenu stundās, izmantojot tirgus cenu starpību.",
     rev_c3_h:"Tīkla balansēšana",rev_c3_p:"Dalība balansēšanas un jaudas rezerves pakalpojumos, nodrošinot energosistēmas stabilitāti un papildu ieņēmumus.",
-    fin_eyebrow:"Finanšu rādītāji",fin_h2:"Spēcīga un prognozējama atdeve",
-    fin_lead:"10 gadu investīciju modelis ar dubultu CAPEX bāzi (tikai iekārtas / pilns projekts) un 9% diskonta likmi — atbilstoši Baltijas saules + uzkrāšanas projektu etaloniem.",
-    fin_irr:"IRR (10 gadi)",fin_roi:"ROI (10 gadi, kumulatīvs)",fin_years:"gadi",fin_payback:"Vienkāršā atmaksāšanās",fin_capex:"Kopējais projekta CAPEX",
-    fin_note:"Diapazoni atspoguļo divas CAPEX bāzes (tikai iekārtas / pilns projekts). NPV un pilna 10 gadu naudas plūsma pieejama pēc pieprasījuma.",
+    fin_eyebrow:"Finanšu rādītāji",fin_h2:"Finanšu rādītāji tiek atjaunināti",
+    fin_lead:"SES 3 MWp ar 2,5 MW pieslēgumu AS „Sadales tīkls“ sistēmai un projektēšanā esoša akumulatoru sistēma 2,5 MW / 5 MWh, kas tiks pieslēgta tajā pašā pieslēguma vietā. Kopējā jauda tīklā 2,5 MW. Finanšu modelis tiek atjaunināts atbilstoši precizētajiem pieslēguma nosacījumiem; detalizēts aprēķins pieejams ieinteresētajiem investoriem pēc pieprasījuma. Aprēķini nav ienesīguma garantija.",
+    fin_capex:"Indikatīvais kopējais ieguldījums",
+    fin_note:"Skaitļi ir indikatīvi. Detalizēti aprēķini un jutīguma analīze pieejami ieinteresētajiem investoriem pēc pieprasījuma.",
     fin_cta:"Pieprasīt pilnu finanšu modeli",
     loc_eyebrow:"Atrašanās vieta",loc_h2:"Salaspils pagasts",
     loc_lead:"Parks tiek veidots uz diviem zemes gabaliem — „Ļipiņas“ un „Ļipiņas 1“ — Salaspils pagastā, industriāli attīstītā teritorijā.",
@@ -723,7 +720,7 @@ const I18N = {
     map_pin:"SES + BESS parks Ļipiņas — zemes gabali „Ļipiņas“ (kad. 80310140020) un „Ļipiņas 1“ (kad. 80310140315)",
     st_eyebrow:"Projekta statuss",st_h2:"Kur projekts atrodas šobrīd",
     st1_h:"Tehniskais projekts",st1_p:"SES tehniskais projekts saskaņots, saņemta SES būvatļauja",st2_h:"SES pieslēgums izbūvēts un nodots ekspluatācijā",st2_p:"SES pieslēgums AS „Sadales tīkls“ izbūvēts un nodots ekspluatācijā",
-    st3_h:"BESS projektēšana un SES projekta izmaiņas (šobrīd)",st3_p:"Tiek projektēta BESS un veiktas izmaiņas SES tehniskajā projektā, papildinot ar BESS daļu; tiek projektēts BESS pieslēgums AS „Sadales tīkls“",st4_h:"Finansējums vai pārdošana",st4_p:"Esam atvērti dažādām darījuma formām: investīcija apmaiņā pret kapitāla daļām, aizdevums projekta realizācijai vai projekta pārdošana esošajā stāvoklī",st5_h:"Būvniecība",st5_p:"Parka izbūve un nodošana ekspluatācijā; SES un BESS būvniecība var notikt vienlaikus",
+    st3_h:"BESS projektēšana un SES projekta izmaiņas (šobrīd)",st3_p:"Tiek projektēta BESS un tās pieslēgums esošajā SES pieslēguma vietā; tiek veiktas izmaiņas SES tehniskajā projektā, papildinot ar BESS daļu",st4_h:"Finansējums vai pārdošana",st4_p:"Esam atvērti dažādām darījuma formām: investīcija apmaiņā pret kapitāla daļām, aizdevums projekta realizācijai vai projekta pārdošana esošajā stāvoklī",st5_h:"Būvniecība",st5_p:"Parka izbūve un nodošana ekspluatācijā; SES un BESS būvniecība var notikt vienlaikus",
     ct_eyebrow:"Kontakti",ct_reg:"Reģ. Nr. 40003753491",ct_email:"E-pasts",ct_person:"Kontaktpersona",ct_name1:"Aleksejs Haļavins",
     ct_note:"Pilns finanšu modelis, metodoloģija un tehniskā dokumentācija tiek nodrošināta ieinteresētajiem investoriem pēc pieprasījuma.",
     gp_eyebrow:"Situācijas plāns",gp_h2:"Izkārtojums un attīstības potenciāls",
@@ -738,14 +735,14 @@ const I18N = {
     faq_q1:"Kas ir BESS?",faq_a1:"BESS (Battery Energy Storage System — akumulatoru enerģijas uzkrāšanas sistēma) ir akumulatoru sistēma, kas uzkrāj elektroenerģiju un atdod to tīklā vajadzīgajā brīdī. Ļipiņas projektā tā ir 5 MWh ietilpība ar 2,5 MW jaudu.",
     faq_q2:"Kas ir SES?",faq_a2:"SES (saules enerģijas sistēma) ir saules paneļu elektrostacija, kas ražo elektroenerģiju no saules. Ļipiņas projektā tā ir 3 MW jauda.",
     faq_q3:"Kā darbojas saules + BESS parks?",faq_a3:"Saules paneļi ražo elektroenerģiju, ko var pārdot tīklā vai uzkrāt akumulatoros. BESS uzkrāj enerģiju lētās cenas stundās un atdod dārgajās, kā arī nodrošina tīkla balansēšanas pakalpojumus.",
-    faq_q4:"Kāpēc apvienot saules paneļus ar akumulatoriem?",faq_a4:"Apvienojums ļauj gūt ieņēmumus no trim plūsmām — enerģijas pārdošanas, cenu arbitrāžas un tīkla balansēšanas — un padara ienākumus stabilākus un prognozējamākus.",
+    faq_q4:"Kāpēc apvienot saules paneļus ar akumulatoriem?",faq_a4:"Apvienojums ļauj gūt ieņēmumus no trim plūsmām — enerģijas pārdošanas, cenu arbitrāžas un tīkla balansēšanas — diversificējot ieņēmumus un samazinot atkarību no viena avota.",
     faq_q5:"Kur atrodas Ļipiņas projekts?",faq_a5:"Salaspils pagastā, Salaspils novadā, uz diviem zemes gabaliem — „Ļipiņas“ un „Ļipiņas 1“.",
     foot_copy:"© 2026 SIA „STROIPERLIT-RIGA“ · SES + BESS parks Ļipiņas",
-    foot_disc:"Skaitļi ir indikatīvi · Nav publisks piedāvājums iegādāties vērtspapīrus",foot_privacy:"Privātuma politika"
+    foot_disc:"Skaitļi ir indikatīvi, prognozējoši un nav auditēti; faktiskie rezultāti var būtiski atšķirties · Nav publisks piedāvājums iegādāties vērtspapīrus vai ieguldījumu konsultācija · Ieguldījumi ir saistīti ar risku, tostarp iespējamu kapitāla zaudējumu",foot_privacy:"Privātuma politika"
   },
   en:{
     nav_project:"Project",nav_revenue:"Revenue",nav_location:"Location",nav_finance:"Financials",nav_contact:"Contact",nav_cta:"Get in touch",
-    hero_pill:"SES grid connection commissioned · BESS grid connection in design",
+    hero_pill:"SES grid connection commissioned · BESS and its connection in design",
     hero_h1:"Solar energy system 3 MW + Battery Energy Storage System (BESS) 5 MWh",
     hero_lead:"An investment opportunity in the Baltic renewable energy sector: a 3 MW solar power plant combined with a 5 MWh battery storage system on a 4.2 ha plot. Several industrial electricity consumers, including manufacturing plants and logistics warehouses, are located nearby.",
     hero_cta1:"View financials",hero_cta2:"Learn more",
@@ -762,12 +759,12 @@ const I18N = {
     rev_eyebrow:"Revenue model",rev_h2:"Three complementary revenue streams",
     rev_lead:"The solar + BESS combination generates income not only from produced energy, but also from energy trading and grid-balancing services.",
     rev_c1_h:"Solar energy sales",rev_c1_p:"Sale of electricity produced by the solar panels to the grid or a direct consumer — a stable base revenue source. It also cuts GHG (greenhouse gas) emissions and saves on CO₂ allowance costs.",
-    rev_c2_h:"Battery arbitrage",rev_c2_p:"Storing energy during low-price hours and selling it during high-price hours — up to 2 charge cycles per day, capturing market price spreads.",
+    rev_c2_h:"Battery arbitrage",rev_c2_p:"Storing energy during low-price hours and selling it during high-price hours, capturing market price spreads.",
     rev_c3_h:"Grid balancing",rev_c3_p:"Participation in balancing and capacity-reserve services, supporting grid stability and providing additional income.",
-    fin_eyebrow:"Financials",fin_h2:"Strong and predictable returns",
-    fin_lead:"A 10-year investment model with a dual CAPEX basis (equipment only / full project) and a 9% discount rate — aligned with Baltic solar + storage benchmarks.",
-    fin_irr:"IRR (10-year)",fin_roi:"ROI (10-year, cumulative)",fin_years:"years",fin_payback:"Simple payback period",fin_capex:"Total project CAPEX",
-    fin_note:"Ranges reflect the two CAPEX bases (equipment only / full project). NPV and the full 10-year cash flow are available on request.",
+    fin_eyebrow:"Financials",fin_h2:"Financial figures being updated",
+    fin_lead:"A 3 MWp solar plant with a 2.5 MW connection to the AS “Sadales tīkls” grid, and a 2.5 MW / 5 MWh battery system in design, to be connected at the same grid connection point. Total export capacity 2.5 MW. The financial model is being updated to reflect the refined grid connection terms; detailed calculations are available to interested investors on request. Projections are not a guarantee of returns.",
+    fin_capex:"Indicative total investment",
+    fin_note:"Figures are indicative. Detailed calculations and sensitivities are available to interested investors on request.",
     fin_cta:"Request the full financial model",
     loc_eyebrow:"Location",loc_h2:"Salaspils parish",
     loc_lead:"The park spans two land plots — “Ļipiņas” and “Ļipiņas 1” — in Salaspils parish, an industrially developed area.",
@@ -775,7 +772,7 @@ const I18N = {
     map_pin:"Ļipiņas Solar + BESS park — plots “Ļipiņas” (cad. 80310140020) and “Ļipiņas 1” (cad. 80310140315)",
     st_eyebrow:"Project status",st_h2:"Where the project stands today",
     st1_h:"Technical design",st1_p:"SES technical design approved, SES building permit obtained",st2_h:"SES grid connection built and commissioned",st2_p:"SES connection to AS “Sadales tīkls” built and commissioned",
-    st3_h:"BESS design and SES design changes (current)",st3_p:"The BESS and its connection to AS “Sadales tīkls” are being designed; the SES technical design is being amended to add the BESS part",st4_h:"Financing or sale",st4_p:"Open to several deal structures: equity investment, a loan to implement the project, or sale of the project as is",st5_h:"Construction",st5_p:"Building the park and commissioning; SES and BESS construction may take place simultaneously",
+    st3_h:"BESS design and SES design changes (current)",st3_p:"The BESS and its connection at the existing SES grid connection point are being designed; the SES technical design is being amended to add the BESS part",st4_h:"Financing or sale",st4_p:"Open to several deal structures: equity investment, a loan to implement the project, or sale of the project as is",st5_h:"Construction",st5_p:"Building the park and commissioning; SES and BESS construction may take place simultaneously",
     ct_eyebrow:"Contact",ct_reg:"Reg. No. 40003753491",ct_email:"E-mail",ct_person:"Contact person",ct_name1:"Aleksejs Haļavins",
     ct_note:"The full financial model, methodology and technical documentation are provided to interested investors on request.",
     gp_eyebrow:"Site plan",gp_h2:"Layout and development potential",
@@ -790,14 +787,14 @@ const I18N = {
     faq_q1:"What is BESS?",faq_a1:"BESS (Battery Energy Storage System) is a battery system that stores electricity and returns it to the grid when needed. In the Ļipiņas project it is 5 MWh capacity with 2.5 MW power.",
     faq_q2:"What is SES?",faq_a2:"SES (solar energy system) is a solar panel power plant that generates electricity from sunlight. In the Ļipiņas project it is 3 MW.",
     faq_q3:"How does a solar + BESS park work?",faq_a3:"Solar panels generate electricity that can be sold to the grid or stored in batteries. The BESS stores energy during low-price hours and releases it during high-price hours, and also provides grid-balancing services.",
-    faq_q4:"Why combine solar panels with batteries?",faq_a4:"The combination generates income from three streams — energy sales, price arbitrage and grid balancing — making returns more stable and predictable.",
+    faq_q4:"Why combine solar panels with batteries?",faq_a4:"The combination can generate income from three streams — energy sales, price arbitrage and grid balancing — diversifying revenue and reducing dependence on a single source.",
     faq_q5:"Where is the Ļipiņas project located?",faq_a5:"In Salaspils parish, Salaspils county, on two land plots — “Ļipiņas” and “Ļipiņas 1”.",
     foot_copy:"© 2026 “STROIPERLIT-RIGA” Ltd (SIA) · Ļipiņas Solar + BESS park",
-    foot_disc:"Figures are indicative · Not a public offer of securities",foot_privacy:"Privacy policy"
+    foot_disc:"Figures are indicative, forward-looking and unaudited; actual results may differ materially · Not a public offer of securities or investment advice · Investments involve risk, including possible loss of capital",foot_privacy:"Privacy policy"
   },
   ru:{
     nav_project:"Проект",nav_revenue:"Доходы",nav_location:"Расположение",nav_finance:"Финансы",nav_contact:"Контакты",nav_cta:"Связаться",
-    hero_pill:"Подключение СЭС к сети введено в эксплуатацию · Подключение BESS проектируется",
+    hero_pill:"Подключение СЭС к сети введено в эксплуатацию · BESS и её подключение проектируются",
     hero_h1:"Система солнечной энергии 3 МВт + аккумуляторная система накопления энергии (BESS) 5 МВт·ч",
     hero_lead:"Инвестиционная возможность в секторе возобновляемой энергетики Балтии: солнечная электростанция 3 МВт в сочетании с аккумуляторной системой накопления 5 МВт·ч на участке 4,2 га. Рядом расположены несколько промышленных потребителей электроэнергии, в том числе производственные предприятия и логистические склады.",
     hero_cta1:"Финансовые показатели",hero_cta2:"Подробнее",
@@ -814,12 +811,12 @@ const I18N = {
     rev_eyebrow:"Модель доходов",rev_h2:"Три взаимодополняющих источника дохода",
     rev_lead:"Комбинация СЭС + BESS позволяет получать доход не только от выработанной энергии, но и от торговли энергией и услуг балансировки сети.",
     rev_c1_h:"Продажа солнечной энергии",rev_c1_p:"Продажа электроэнергии, выработанной солнечными панелями, в сеть или прямому потребителю — стабильный базовый источник дохода. Дополнительно снижает выбросы ПГ (парниковых газов) и экономит на квотах CO₂.",
-    rev_c2_h:"Арбитраж накопителя",rev_c2_p:"Накопление энергии в часы низких цен и продажа в часы высоких — до 2 циклов заряда в сутки, используя разброс рыночных цен.",
+    rev_c2_h:"Арбитраж накопителя",rev_c2_p:"Накопление энергии в часы низких цен и её продажа в часы высоких цен за счёт разницы рыночных цен.",
     rev_c3_h:"Балансировка сети",rev_c3_p:"Участие в услугах балансировки и резервирования мощности, поддерживая стабильность энергосистемы и принося дополнительный доход.",
-    fin_eyebrow:"Финансы",fin_h2:"Сильная и предсказуемая доходность",
-    fin_lead:"10-летняя инвестиционная модель с двойной базой CAPEX (только оборудование / полный проект) и ставкой дисконтирования 9% — в соответствии с эталонами проектов СЭС + накопление в Балтии.",
-    fin_irr:"IRR (10 лет)",fin_roi:"ROI (10 лет, накопл.)",fin_years:"года",fin_payback:"Простая окупаемость",fin_capex:"Общий CAPEX проекта",
-    fin_note:"Диапазоны отражают две базы CAPEX (только оборудование / полный проект). NPV и полный 10-летний денежный поток доступны по запросу.",
+    fin_eyebrow:"Финансы",fin_h2:"Финансовые показатели обновляются",
+    fin_lead:"СЭС мощностью 3 МВт (пик) с подключением 2,5 МВт к сети AS «Sadales tīkls» и проектируемая аккумуляторная система 2,5 МВт / 5 МВт·ч, которая будет подключена в той же точке присоединения к сети. Общая мощность выдачи в сеть 2,5 МВт. Финансовая модель обновляется в соответствии с уточнёнными условиями подключения; подробные расчёты предоставляются заинтересованным инвесторам по запросу. Прогнозы не гарантируют доходность.",
+    fin_capex:"Ориентировочные общие инвестиции",
+    fin_note:"Показатели ориентировочны. Подробные расчёты и анализ чувствительности предоставляются заинтересованным инвесторам по запросу.",
     fin_cta:"Запросить полную финансовую модель",
     loc_eyebrow:"Расположение",loc_h2:"Саласпилсская волость",
     loc_lead:'Парк создаётся на двух земельных участках — «Ļipiņas» и «Ļipiņas 1» — в Саласпилсской волости, промышленно развитой зоне.',
@@ -827,7 +824,7 @@ const I18N = {
     map_pin:"Парк СЭС + BESS Ļipiņas — участки «Ļipiņas» (кад. 80310140020) и «Ļipiņas 1» (кад. 80310140315)",
     st_eyebrow:"Статус проекта",st_h2:"На каком этапе проект сейчас",
     st1_h:"Технический проект",st1_p:"Техпроект СЭС согласован, получено разрешение на строительство СЭС",st2_h:"Подключение СЭС построено и введено в эксплуатацию",st2_p:"Подключение СЭС к AS «Sadales tīkls» построено и введено в эксплуатацию",
-    st3_h:"Проектирование BESS и изменения проекта СЭС (сейчас)",st3_p:"Проектируется BESS и вносятся изменения в техпроект СЭС с добавлением части BESS; проектируется подключение BESS к AS «Sadales tīkls»",st4_h:"Финансирование или продажа",st4_p:"Рассматриваем разные формы сделки: инвестиции в обмен на долю в капитале, заём на реализацию проекта или продажа проекта «как есть»",st5_h:"Строительство",st5_p:"Строительство парка и ввод в эксплуатацию; СЭС и BESS могут строиться одновременно",
+    st3_h:"Проектирование BESS и изменения проекта СЭС (сейчас)",st3_p:"Проектируются BESS и её подключение в существующей точке подключения СЭС; вносятся изменения в технический проект СЭС с добавлением части BESS",st4_h:"Финансирование или продажа",st4_p:"Рассматриваем разные формы сделки: инвестиции в обмен на долю в капитале, заём на реализацию проекта или продажа проекта «как есть»",st5_h:"Строительство",st5_p:"Строительство парка и ввод в эксплуатацию; СЭС и BESS могут строиться одновременно",
     ct_eyebrow:"Контакты",ct_reg:"Рег. № 40003753491",ct_email:"Эл. почта",ct_person:"Контактное лицо",ct_name1:"Алексей Халявин",
     ct_note:"Полная финансовая модель, методология и техническая документация предоставляются заинтересованным инвесторам по запросу.",
     gp_eyebrow:"Ситуационный план",gp_h2:"Планировка и потенциал развития",
@@ -842,14 +839,14 @@ const I18N = {
     faq_q1:"Что такое BESS?",faq_a1:"BESS (Battery Energy Storage System — аккумуляторная система накопления энергии) — это система аккумуляторов, которая накапливает электроэнергию и отдаёт её в сеть при необходимости. В проекте Ļipiņas это ёмкость 5 МВт·ч и мощность 2,5 МВт.",
     faq_q2:"Что такое СЭС?",faq_a2:"СЭС (система солнечной энергии) — это солнечная электростанция, вырабатывающая электроэнергию из солнечного света. В проекте Ļipiņas это 3 МВт.",
     faq_q3:"Как работает парк СЭС + BESS?",faq_a3:"Солнечные панели вырабатывают электроэнергию, которую можно продать в сеть или сохранить в аккумуляторах. BESS накапливает энергию в часы низких цен и отдаёт в часы высоких, а также предоставляет услуги балансировки сети.",
-    faq_q4:"Зачем объединять солнечные панели с аккумуляторами?",faq_a4:"Комбинация приносит доход из трёх источников — продажа энергии, ценовой арбитраж и балансировка сети — делая доходность более стабильной и предсказуемой.",
+    faq_q4:"Зачем объединять солнечные панели с аккумуляторами?",faq_a4:"Комбинация может приносить доход из трёх источников — продажи энергии, ценового арбитража и балансировки сети, — что диверсифицирует доходы и снижает зависимость от одного источника.",
     faq_q5:"Где расположен проект Ļipiņas?",faq_a5:'В Саласпилсской волости, Саласпилсский край, на двух земельных участках — «Ļipiņas» и «Ļipiņas 1».',
     foot_copy:"© 2026 ООО «STROIPERLIT-RIGA» (SIA) · Парк СЭС + BESS Ļipiņas",
-    foot_disc:"Показатели ориентировочны · Не является публичным предложением ценных бумаг",foot_privacy:"Политика конфиденциальности"
+    foot_disc:"Показатели ориентировочны, носят прогнозный характер и не аудированы; фактические результаты могут существенно отличаться · Не является публичной офертой ценных бумаг и не является инвестиционной консультацией · Инвестиции связаны с риском, включая возможную потерю капитала",foot_privacy:"Политика конфиденциальности"
   },
   de:{
     nav_project:"Projekt",nav_revenue:"Erträge",nav_location:"Standort",nav_finance:"Finanzen",nav_contact:"Kontakt",nav_cta:"Kontakt aufnehmen",
-    hero_pill:"SES-Netzanschluss in Betrieb · BESS-Netzanschluss in Planung",
+    hero_pill:"SES-Netzanschluss in Betrieb · BESS und Anschluss in Planung",
     hero_h1:"Solarenergiesystem 3 MW + Batterie-Energiespeichersystem (BESS) 5 MWh",
     hero_lead:"Eine Investitionsmöglichkeit im baltischen Sektor für erneuerbare Energien: ein 3-MW-Solarkraftwerk kombiniert mit einem 5-MWh-Batteriespeichersystem auf einem 4,2 ha großen Grundstück. In unmittelbarer Nähe befinden sich mehrere industrielle Stromverbraucher, darunter Produktionswerke und Logistiklager.",
     hero_cta1:"Finanzkennzahlen ansehen",hero_cta2:"Mehr erfahren",
@@ -866,12 +863,12 @@ const I18N = {
     rev_eyebrow:"Ertragsmodell",rev_h2:"Drei sich ergänzende Ertragsquellen",
     rev_lead:"Die Kombination aus Solar + BESS erzielt Einnahmen nicht nur aus der erzeugten Energie, sondern auch aus dem Energiehandel und aus Netzausgleichsdiensten.",
     rev_c1_h:"Verkauf von Solarenergie",rev_c1_p:"Verkauf des von den Solarmodulen erzeugten Stroms ins Netz oder an einen Direktverbraucher — eine stabile Basisertragsquelle. Zusätzlich werden THG-Emissionen (Treibhausgase) reduziert und Kosten für CO₂-Zertifikate eingespart.",
-    rev_c2_h:"Batteriearbitrage",rev_c2_p:"Speicherung von Energie in Niedrigpreisstunden und Verkauf in Hochpreisstunden — bis zu 2 Ladezyklen pro Tag, um Marktpreisunterschiede zu nutzen.",
+    rev_c2_h:"Batteriearbitrage",rev_c2_p:"Speicherung von Energie in Niedrigpreisstunden und Verkauf in Hochpreisstunden, um Marktpreisunterschiede zu nutzen.",
     rev_c3_h:"Netzausgleich",rev_c3_p:"Teilnahme an Ausgleichs- und Reserveleistungsdiensten zur Unterstützung der Netzstabilität und für zusätzliche Einnahmen.",
-    fin_eyebrow:"Finanzen",fin_h2:"Starke und planbare Rendite",
-    fin_lead:"Ein 10-Jahres-Investitionsmodell mit doppelter CAPEX-Basis (nur Anlagen / Gesamtprojekt) und 9 % Diskontsatz — im Einklang mit baltischen Benchmarks für Solar + Speicher.",
-    fin_irr:"IRR (10 Jahre)",fin_roi:"ROI (10 Jahre, kumuliert)",fin_years:"Jahre",fin_payback:"Einfache Amortisationszeit",fin_capex:"Gesamt-CAPEX des Projekts",
-    fin_note:"Die Bereiche spiegeln die zwei CAPEX-Basen wider (nur Anlagen / Gesamtprojekt). NPV und der vollständige 10-Jahres-Cashflow sind auf Anfrage erhältlich.",
+    fin_eyebrow:"Finanzen",fin_h2:"Finanzkennzahlen werden aktualisiert",
+    fin_lead:"Eine SES mit 3 MWp und einem 2,5-MW-Anschluss an das Netz von AS „Sadales tīkls“ sowie ein in Planung befindliches Batteriesystem mit 2,5 MW / 5 MWh, das am selben Netzanschlusspunkt angeschlossen wird. Gesamte Einspeiseleistung 2,5 MW. Das Finanzmodell wird an die präzisierten Anschlussbedingungen angepasst; detaillierte Berechnungen sind für interessierte Investoren auf Anfrage erhältlich. Prognosen sind keine Renditegarantie.",
+    fin_capex:"Indikatives Gesamtinvestitionsvolumen",
+    fin_note:"Die Angaben sind Richtwerte. Detaillierte Berechnungen und Sensitivitätsanalysen sind für interessierte Investoren auf Anfrage erhältlich.",
     fin_cta:"Vollständiges Finanzmodell anfordern",
     loc_eyebrow:"Standort",loc_h2:"Gemeinde Salaspils",
     loc_lead:"Der Park erstreckt sich über zwei Grundstücke — „Ļipiņas“ und „Ļipiņas 1“ — in der Gemeinde Salaspils, einem industriell entwickelten Gebiet.",
@@ -879,7 +876,7 @@ const I18N = {
     map_pin:"Ļipiņas Solar + BESS Park — Grundstücke „Ļipiņas“ (Kat. 80310140020) und „Ļipiņas 1“ (Kat. 80310140315)",
     st_eyebrow:"Projektstatus",st_h2:"Wo das Projekt heute steht",
     st1_h:"Technischer Entwurf",st1_p:"Technischer Entwurf der SES genehmigt, Baugenehmigung für die SES erhalten",st2_h:"SES-Netzanschluss gebaut und in Betrieb genommen",st2_p:"SES-Anschluss an AS „Sadales tīkls“ errichtet und in Betrieb genommen",
-    st3_h:"BESS-Planung und Anpassung des SES-Entwurfs (aktuell)",st3_p:"Das BESS und sein Anschluss an AS „Sadales tīkls“ werden geplant; der technische SES-Entwurf wird um den BESS-Teil ergänzt",st4_h:"Finanzierung oder Verkauf",st4_p:"Offen für verschiedene Transaktionsformen: Investition gegen Kapitalbeteiligung, Darlehen zur Projektrealisierung oder Verkauf des Projekts im Ist-Zustand",st5_h:"Bau",st5_p:"Errichtung des Parks und Inbetriebnahme; SES und BESS können gleichzeitig gebaut werden",
+    st3_h:"BESS-Planung und Anpassung des SES-Entwurfs (aktuell)",st3_p:"Das BESS und sein Anschluss am bestehenden SES-Netzanschlusspunkt werden geplant; der technische SES-Entwurf wird um den BESS-Teil ergänzt",st4_h:"Finanzierung oder Verkauf",st4_p:"Offen für verschiedene Transaktionsformen: Investition gegen Kapitalbeteiligung, Darlehen zur Projektrealisierung oder Verkauf des Projekts im Ist-Zustand",st5_h:"Bau",st5_p:"Errichtung des Parks und Inbetriebnahme; SES und BESS können gleichzeitig gebaut werden",
     ct_eyebrow:"Kontakt",ct_reg:"Reg.-Nr. 40003753491",ct_email:"E-Mail",ct_person:"Ansprechpartner",ct_name1:"Aleksejs Haļavins",
     ct_note:"Das vollständige Finanzmodell, die Methodik und die technische Dokumentation werden interessierten Investoren auf Anfrage zur Verfügung gestellt.",
     gp_eyebrow:"Lageplan",gp_h2:"Anordnung und Entwicklungspotenzial",
@@ -894,10 +891,10 @@ const I18N = {
     faq_q1:"Was ist BESS?",faq_a1:"BESS (Battery Energy Storage System — Batterie-Energiespeichersystem) ist ein Batteriesystem, das Strom speichert und bei Bedarf ins Netz zurückgibt. Im Projekt Ļipiņas sind es 5 MWh Kapazität mit 2,5 MW Leistung.",
     faq_q2:"Was ist SES?",faq_a2:"SES (Solarenergiesystem) ist ein Solarkraftwerk, das Strom aus Sonnenlicht erzeugt. Im Projekt Ļipiņas sind es 3 MW.",
     faq_q3:"Wie funktioniert ein Solar-+-BESS-Park?",faq_a3:"Solarmodule erzeugen Strom, der ins Netz verkauft oder in Batterien gespeichert werden kann. Das BESS speichert Energie in Niedrigpreisstunden und gibt sie in Hochpreisstunden ab und bietet zudem Netzausgleichsdienste.",
-    faq_q4:"Warum Solarmodule mit Batterien kombinieren?",faq_a4:"Die Kombination erzielt Einnahmen aus drei Strömen — Energieverkauf, Preisarbitrage und Netzausgleich — und macht die Rendite stabiler und planbarer.",
+    faq_q4:"Warum Solarmodule mit Batterien kombinieren?",faq_a4:"Die Kombination kann Erlöse aus drei Quellen erzielen — Energieverkauf, Preisarbitrage und Netzausgleich — und diversifiziert so die Einnahmen und verringert die Abhängigkeit von einer einzigen Quelle.",
     faq_q5:"Wo befindet sich das Projekt Ļipiņas?",faq_a5:"In der Gemeinde Salaspils, Bezirk Salaspils, auf zwei Grundstücken — „Ļipiņas“ und „Ļipiņas 1“.",
     foot_copy:"© 2026 „STROIPERLIT-RIGA“ GmbH (SIA) · Ļipiņas Solar + BESS Park",
-    foot_disc:"Angaben sind Richtwerte · Kein öffentliches Wertpapierangebot",foot_privacy:"Datenschutzerklärung"
+    foot_disc:"Angaben sind Richtwerte, zukunftsgerichtet und ungeprüft; die tatsächlichen Ergebnisse können erheblich abweichen · Kein öffentliches Wertpapierangebot und keine Anlageberatung · Investitionen sind mit Risiken verbunden, einschließlich eines möglichen Kapitalverlusts",foot_privacy:"Datenschutzerklärung"
   }
 };
 

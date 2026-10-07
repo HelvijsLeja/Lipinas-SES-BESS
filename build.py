@@ -16,6 +16,7 @@ LOCALE = {"lv": "lv_LV", "en": "en_US", "de": "de_DE", "ru": "ru_RU"}
 META = {
     "en": {
         "org": "“STROIPERLIT-RIGA” Ltd (SIA)",
+        "capex": "~€2.3M",
         "title": "Ļipiņas SES + BESS Park — Solar and Battery Storage Project",
         "desc": "Ļipiņas SES + BESS: 3 MW solar system with 5 MWh battery storage in Salaspils region, next to Knauf. Investment opportunity in Baltic renewables.",
         "og_desc": "3 MW solar system with 5 MWh battery storage in Salaspils region. Investment opportunity in the Baltic renewable energy sector.",
@@ -26,6 +27,7 @@ META = {
     },
     "de": {
         "org": "„STROIPERLIT-RIGA“ GmbH (SIA)",
+        "capex": "~€2,3M",
         "title": "Ļipiņas SES + BESS Park — Solar- und Batteriespeicherprojekt",
         "desc": "Ļipiņas SES + BESS: 3-MW-Solaranlage mit 5 MWh Batteriespeicher in Salaspils, neben Knauf. Investitionsmöglichkeit im baltischen Energiesektor.",
         "og_desc": "3-MW-Solaranlage mit 5 MWh Batteriespeicher in der Gemeinde Salaspils. Investitionsmöglichkeit im baltischen Sektor für erneuerbare Energien.",
@@ -36,6 +38,7 @@ META = {
     },
     "ru": {
         "org": "ООО «STROIPERLIT-RIGA» (SIA)",
+        "capex": "~€2,3M",
         "title": "Ļipiņas СЭС + BESS — солнечная энергия и накопители",
         "desc": "Ļipiņas СЭС + BESS: солнечная система 3 МВт с накопителем 5 МВт·ч в Саласпилсском крае, рядом с Knauf. Инвестиции в возобновляемую энергетику Балтии.",
         "og_desc": "Солнечная система 3 МВт с накопителем 5 МВт·ч в Саласпилсском крае. Инвестиционная возможность в секторе возобновляемой энергии Балтии.",
@@ -95,6 +98,9 @@ def build(lang, src, I18N):
     # uzņēmuma nosaukums pēc valodas (legalName paliek reģistrētais LV nosaukums)
     lv_org = "SIA „STROIPERLIT-RIGA“"
     h = meta(h, "author", M["org"])
+    old = '<div class="n">~€2,3M</div><div class="l" data-i18n="fin_capex">'
+    assert h.count(old) == 1, old
+    h = h.replace(old, old.replace("~€2,3M", M["capex"]))
     for old, new in (('"name": "%s",' % lv_org, '"name": "%s",' % M["org"]),
                      ("<h3>%s</h3>" % lv_org, "<h3>%s</h3>" % M["org"])):
         assert h.count(old) == 1, old
