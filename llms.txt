@@ -27,7 +27,7 @@ ražošanas attīstības projektus, kuriem vajadzīga lēta, uz vietas saražota
 
 ## Finanšu informācija
 - Indikatīvais kopējais ieguldījums: ~2,3 miljoni EUR.
-- Finanšu modelis tiek atjaunināts atbilstoši precizētajiem pieslēguma nosacījumiem; detalizēts aprēķins pēc pieprasījuma. Aprēķini nav ienesīguma garantija.
+- Finanšu modelis tiek atjaunināts atbilstoši precizētajiem pieslēguma nosacījumiem; detalizēts aprēķins pēc pieprasījuma.
 
 ## Statuss
 - SES tehniskais projekts saskaņots, saņemta SES būvatļauja.
